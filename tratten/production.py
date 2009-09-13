@@ -1,0 +1,2 @@
+
+from tratten.settings import *
