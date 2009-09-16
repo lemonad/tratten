@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block metatitle %}Ärende registrerat{% endblock %}
+{% block reporterrorlink %}{% url errorreport %}?url={% url startpage %}{% endblock %}
+{% block javascript %}
+  <script type='text/javascript'>
+    $(document).ready(function() {
+      {% include "base-document-ready.js" %}
+
+      $("input[name='urgent']").click(function () {
+        if($("input[name='urgent']:checked").val() == "1" ) {
+          $("#urgency-notice").show();
+        } else if ($("input[name='urgent']:checked").val() =="0") {
+          $("#urgency-notice").hide();
+        }
+      });
+
+      $("#due-date").datepicker({
+        dateFormat: 'yy-mm-dd',
+        duration: 0});
+    });
+  </script>
+{% endblock %}
+{% block container %}
+<form id="dummy" action="" method="post">
+    <div class='span-10 last'>
+        <div class="span-6">
+            <h2>Nytt ärende</h2>
+        </div>
+        <div id="menubar" class='span-4 last right'>
+            <span class="selected-item">Nytt ärende</span>
+            <span class="separator">|</span>
+            <a href="{% url list-issues %}">Ärendestatus</a>
+            <span class="separator">|</span>
+            <a href="help.html">Hjälp</a>
+        </div>
+    </div>
+
+
+    <div class='span-3'>
+        <div class='span-3 label last'>
+            <label {% if form.reporter_name.errors %}class="label-error"{% endif %} for="id_reporter_name">Namn *</label>
+        </div>
+
+        <div class='span-3 last'>
+            {{ form.reporter_name }}
+        </div>
+    </div>
+    <div class='span-4'>
+        <div class='span-4 label last'>
+            <label {% if form.reporter_email.errors %}class="label-error"{% endif %} for="id_reporter_email">Epost *</label>
+        </div>
+
+        <div class='span-4 last'>
+            {{ form.reporter_email }}
+        </div>
+    </div>
+    <div class='span-3 last'>
+        <div class='span-3 label last'>
+            <label {% if form.reporter_phone.errors %}class="label-error"{% endif %} for="id_reporter_phone">Telefon</label>
+        </div>
+
+        <div class='span-3 last'>
+            {{ form.reporter_phone }}
+        </div>
+    </div>
+
+
+    <div class='span-4'>
+        <div class='span-4 label last'>
+            <label {% if form.category.errors %}class="label-error"{% endif %} for="id_category">{{ category_name }} *</label>
+        </div>
+
+        <div class='span-4 last'>
+            {{ form.category }}
+        </div>
+    </div>
+    <div class='span-4'>
+        <div class='span-4 label last'>
+            <label {% if form.urgent.errors %}class="label-error"{% endif %} for="id_urgent">Är ärendet akut?</label>
+        </div>
+
+        <div id="urgent-radio" class="span-4 last">
+            {{ form.urgent }}
+        </div>
+    </div>
+    <div class='span-2 last'>&nbsp;</div>
+
+
+    <div style="display:none;" id="urgency-notice" class='span-10 last'>
+        <div class='notice'>
+            Du har angivit att situationen är akut &mdash; är du helt säker på att det inte kan vänta?
+        </div>
+    </div>
+
+
+    <div class='span-10 last'>
+        <div class='span-10 label last'>
+            <label {% if form.summary.errors %}class="label-error"{% endif %} for="id_summary">Sammanfattning *</label>
+        </div>
+        <div class='span-10 last'>
+            {{ form.summary }}
+        </div>
+    </div>
+
+
+    <div class='span-10 last'>
+        <div class='span-10 label last'>
+            <label {% if form.description.errors %}class="label-error"{% endif %} for="id_description">Beskrivning</label>
+        </div>
+        <div class='span-10 last'>
+            {{ form.description }}
+        </div>
+    </div>
+
+    <div class='span-10 last'>
+        <div class='span-10 label last'>
+            <label {% if form.due_date.errors %}class="label-error"{% endif %} for="id_due_date">Önskad klartidpunkt (yyyy-mm-dd)</label>
+        </div>
+        <div class='span-2'>
+            {{ form.due_date }}
+        </div>
+        <div class='span-6'>&nbsp;</div>
+        <div class='span-2 last right'>
+            <input class="submit" type="submit" value="Skicka" />
+        </div>
+    </div>
+</form>
+{% endblock %}

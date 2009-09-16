@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block metatitle %}Ärendestatus{% endblock %}
+{% block reporterrorlink %}{% url errorreport %}?url={% url startpage %}{% endblock %}
+{% block container %}
+<div class='span-10 last'>
+<div class="span-6">
+    <h2>Ärendestatus</h2>
+</div>
+<div id="menubar" class='span-4 last right'>
+    <a href="{% url create-issue %}">Nytt ärende</a>
+    <span class="separator">|</span>
+    <span class="selected-item">Ärendestatus</span>
+    <span class="separator">|</span>
+    <a href="help.html">Hjälp</a>
+    </div>
+</div>
+
+
+<div class='span-10 last'>
+    <div class='span-4 label'>
+        <label for="name">Filtrera på {{ category_name|lower }}</label>
+    </div>
+    <div class='span-6 last'>&nbsp;</div>
+
+    <div class='span-4'>
+        <form id="dummy" action="" method="post">
+            <select class="width-80" name="simulator">
+                <option value=""></option>
+                {% for category in categories %}
+                <option value="{{ category.name }}">{{ category.name }}</option>
+                {% endfor %}
+            </select>
+            <input class="submit" type="submit" value="OK" />
+        </form>
+    </div>
+    <div class='span-6 last'>&nbsp;</div>
+</div>
+
+
+<div class='span-10 last'>
+    <table>
+        <tr>
+            <th>Nr</th>
+            <th>Rubrik</th>
+            <th>Datum</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>
+                <h4>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+                </h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </td>
+            <td>2009&#8209;09&#8209;01</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>
+                <h4>
+                    Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                </h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </td>
+            <td>2009&#8209;08&#8209;01</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>
+                <h4>
+                    Ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </td>
+            <td>2009&#8209;07&#8209;01</td>
+        </tr>
+    </table>
+</div>
+{% endblock %}

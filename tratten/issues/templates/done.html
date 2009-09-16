@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block metatitle %}Ärende registrerat{% endblock %}
+{% block reporterrorlink %}{% url errorreport %}?url={% url startpage %}{% endblock %}
+{% block container %}
+<div class='span-10 last'>
+    <div class="span-6">
+        <h2>Ärende registrerat</h2>
+    </div>
+    <div id="menubar" class='span-4 last right'>
+        <a href="{% url create-issue %}">Nytt ärende</a>
+        <span class="separator">|</span>
+        <a href="{% url list-issues %}">Ärendestatus</a>
+        <span class="separator">|</span>
+        <a href="help.html">Hjälp</a>
+    </div>
+</div>
+
+<div class='span-10 last prepend-top'>
+    {{ description|safe }}
+</div>
+{% endblock %}

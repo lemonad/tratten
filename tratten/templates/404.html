@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block metatitle %}{% trans "Page not found" %}{% endblock %}
+{% block title %}{% trans "Page not found" %}{% endblock %}
+{% block container %}
+<div>
+  <img height="150" src="{{ MEDIA_URL }}images/404.png"/>
+  {% url errorreport as errorreporturl %}
+  <p>{% trans "Unfortunately, what you were looking for could not be found." %}</p><br/>
+  <p>{% blocktrans %}If you believe this is an error, we would really appreciate if you could write an <a href="{{ errorreporturl }}?url=/">error report</a>.{% endblocktrans %}</p>
+</div>
+{% endblock %}

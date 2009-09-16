@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block metatitle %}{% trans "Select language" %}{% endblock %}
+{% block title %}{% trans "Select your prefered language" %}{% endblock %}
+{% block reporterrorlink %}{% url errorreport %}?url={% url select-language %}{% endblock %}
+{% block container %}
+<div>
+  <form action="/i18n/setlang/" method="post">
+  <input name="next" type="hidden" value="/" />
+  <select id="set-focus" name="language">
+  {% for lang in LANGUAGES %}
+  <option value="{{ lang.0 }}">{{ lang.1 }}</option>
+  {% endfor %}
+  </select>
+  <input type="submit" value="Go" />
+  </form>
+</div>
+{% endblock %}

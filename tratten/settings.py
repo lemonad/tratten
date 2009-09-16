@@ -16,7 +16,7 @@ from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 PROJECT_ROOT = os.path.join(os.path.dirname(__file__), '/')
 
 ADMINS = (
-    # ('Your Name', 'your_email@domain.com'),
+    ('jnt', 'jonasnockert@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -30,8 +30,8 @@ DATABASE_PORT = ''             # Set to empty string for default. Not used with 
 
 TIME_ZONE = 'Europe/Stockholm'
 
-# LANGUAGE_CODE = 'sv-SE'
-LANGUAGE_CODE = 'en-US'
+LANGUAGE_CODE = 'sv-SE'
+# LANGUAGE_CODE = 'en-US'
 
 ugettext = lambda s: s
 LANGUAGES = (
@@ -59,7 +59,7 @@ MEDIA_URL = '/media/'
 ADMIN_MEDIA_PREFIX = '/admin_media/'
 
 # Don't share this with anybody.
-SECRET_KEY = 'ChangeThisKeyToSomethingCompletelyDifferent'
+SECRET_KEY = '23094820398ehsfjkjsdhfsdfo8wy8ryw3r09ywh3roihw3krgwi3ur'
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -79,11 +79,19 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
-    'tratten.exampleapp',
+    'south',
+    'tratten.categories',
+    'tratten.common',
+    'tratten.errorreports',
+    'tratten.flatcontent',
+    'tratten.issues',
+    'tratten.login',
+    'tratten.preferences',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = TEMPLATE_CONTEXT_PROCESSORS + (
-  'djangoflash.context_processors.flash',
+    'tratten.common.context_processors.site',
+    'djangoflash.context_processors.flash',
 )
 
 TEMPLATE_LOADERS = (
@@ -92,15 +100,21 @@ TEMPLATE_LOADERS = (
 )
 
 TEMPLATE_DIRS = (
-    os.path.join(os.path.dirname(__file__), "exampleapp/fixtures"),
     os.path.join(os.path.dirname(__file__), "templates"),
+)
+
+FIXTURE_DIRS = (
+    os.path.join(os.path.dirname(__file__), "categories/fixtures"),
+    os.path.join(os.path.dirname(__file__), "common/fixtures"),
+    os.path.join(os.path.dirname(__file__), "flatcontent/fixtures"),
+    os.path.join(os.path.dirname(__file__), "issues/fixtures"),
 )
 
 SITE_ID = 1
 
-DEFAULT_FROM_EMAIL = "your_email@domain.com"
-SERVER_EMAIL = "your_email@domain.com"
-EMAIL_SUBJECT_PREFIX = "Django: "
+DEFAULT_FROM_EMAIL = "jonasnockert@gmail.com"
+SERVER_EMAIL = "jonasnockert@gmail.com"
+EMAIL_SUBJECT_PREFIX = "Tratten: "
 
 # The below LOGIN_URL and LOGOUT_URL doesn't seem to be used except
 # when unit testing views.

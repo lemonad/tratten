@@ -1,0 +1,38 @@
+[
+    {
+        "pk": 1,
+        "model": "flatcontent.flatcontent",
+        "fields": {
+            "name": "index-text",
+            "language_code": "sv-SE",
+            "content": "<p>Welcome!</p>"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "flatcontent.flatcontent",
+        "fields": {
+            "name": "index-contact-information",
+            "language_code": "sv-SE",
+            "content": "Phone us at #1234 or <a href=\"mailto:tratten@example.com\">tratten@example.com</a>"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "flatcontent.flatcontent",
+        "fields": {
+            "name": "issue-creation-done-text",
+            "language_code": "sv-SE",
+            "content": "<p>Thanks for submitting the issue.</p>"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "flatcontent.flatcontent",
+        "fields": {
+            "name": "category-name",
+            "language_code": "sv-SE",
+            "content": "Category"
+        }
+    }
+]

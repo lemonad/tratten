@@ -1,0 +1,41 @@
+[
+    {
+        "pk": 1,
+        "model": "issues.Issue",
+        "fields": {
+            "category": 1,
+            "urgent": false,
+            "reporter_name": "Ursula Utah",
+            "reporter_email": "ursula@example.com",
+            "summary": "Load balancer using too much CPU",
+            "created_at": "2009-09-16 15:13:05",
+            "changed_at": "2009-09-16 15:13:05"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "issues.Issue",
+        "fields": {
+            "category": 2,
+            "urgent": true,
+            "reporter_name": "Monica Montana",
+            "reporter_email": "monica@example.com",
+            "summary": "Power supply for server rack has failed",
+            "created_at": "2009-09-16 15:13:05",
+            "changed_at": "2009-09-16 15:13:05"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "issues.Issue",
+        "fields": {
+            "category": 3,
+            "urgent": true,
+            "reporter_name": "Harry Houston",
+            "reporter_email": "harry@example.com",
+            "summary": "Internal yellow pages return HTTP 500 error on user pages",
+            "created_at": "2009-09-16 15:13:05",
+            "changed_at": "2009-09-16 15:13:05"
+        }
+    }
+]

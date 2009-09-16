@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block metatitle %}{% trans "Log in" %}{% endblock %}
+{% block title %}{% trans "Log in" %}{% endblock %}
+{% block reporterrorlink %}{% url errorreport %}?url={% url index %}{% endblock %}
+{% block container %}
+{% if form.errors %}
+<p>{% trans "Your username and password did not match. Please try again." %}</p>
+{% endif %}
+
+<br/><p><b>{% trans 'Please observe that if this is your first time logging in, choose the "forgot password" link under the form to create a password.' %}</b></p>
+<form method="post" action=".">
+<table>
+<tr><td>{{ form.username.label_tag }}</td><td>{{ form.username }}</td></tr>
+<tr><td>{{ form.password.label_tag }}</td><td>{{ form.password }}</td></tr>
+</table>
+<p><a href="{% url password-reset %}">{% trans "Forgot your password?" %}</a></p>
+
+<input type="submit" value="{% trans "Log in" %}" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+{% endblock %}

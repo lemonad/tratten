@@ -1,0 +1,44 @@
+/* TODO: Verify below */
+
+* { margin: 0; padding: 0; }
+body {
+    font-family: Arial, Helvetica, sans-serif; font-size: 11pt;
+    background-color: white; margin: 70px 0 0 0; padding: 0;
+    }
+
+
+/* Anchors */
+a { text-decoration: none; color: #000; }
+
+
+/* Images */
+img { border: none; page-break-inside: avoid !important; }
+#header-logo img {
+    position: absolute; top: 0; left: 2pt; clip: rect(0px 233px 70px 0px);
+    }
+
+
+/* Headings */
+h1 { display:none; }
+h3 { page-break-after: avoid !important; }
+
+
+/* Tables */
+table { empty-cells: show; border-collapse: collapse; }
+thead {
+    display: table-header-group; page-break-before: avoid !important;
+    page-break-inside: avoid;
+    }
+th { color: #000; page-break-inside: avoid !important; }
+tr { page-break-inside: avoid !important; }
+td {
+    padding:1pt 3pt 1pt 3pt; color:#000; page-break-inside: avoid !important;
+    }
+
+/* Lists */
+ul {
+    margin: 5pt 0 5pt 0; padding: 0; line-height: 1.3em;
+    list-style-type: none;
+    }
+ul#flash-alerts { display: none; }
+li { margin: 0; padding: 0; }

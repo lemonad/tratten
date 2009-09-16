@@ -11,4 +11,5 @@ include
 lib
 parts
 src/*.egg-info
-
+/tratten.db
+.DS_Store

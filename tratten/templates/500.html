@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block metatitle %}{% trans "Internal Server Error" %}{% endblock %}
+{% block title %}{% trans "Internal Server Error" %}{% endblock %}
+{% block container %}
+<div>
+  <img height="150" src="{{ MEDIA_URL }}images/500.png"/>
+  <p>{% trans "You've come across a bug! We've been notified of the problem and will try to fix it as soon as possible." %}</p>
+  <p>{% trans "Thank you for your patience!" %}</p>
+</div>
+{% endblock %}
