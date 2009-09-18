@@ -20,7 +20,7 @@
       {% ifequal r.status 3 %}
         <tr style="background-color:#eee;">
       {% else %}
-        <tr class="{% cycle list-odd, list-even %}">
+        <tr class="{% cycle 'list-odd' 'list-even' %}">
       {% endifequal %}
       <td>{{ r.date_created }}</td>
       {% ifequal r.status 3 %}

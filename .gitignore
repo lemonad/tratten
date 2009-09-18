@@ -12,5 +12,6 @@
 /lib
 /parts
 /tratten.db
+/tratten.log
 /tratten/local_settings.py
 /tratten/docs
