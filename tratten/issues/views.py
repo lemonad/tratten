@@ -3,8 +3,10 @@
 from datetime import datetime
 import simplejson
 import time
+import socket
 
 from django import forms
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.utils.translation import ugettext, ugettext_lazy as _
@@ -101,13 +103,27 @@ def create(request):
             reporter_name = issue_form.cleaned_data['reporter_name']
             reporter_email = issue_form.cleaned_data['reporter_email']
             reporter_phone = issue_form.cleaned_data['reporter_phone']
+            issue = issue_form.save()
 
-            issue_form.save()
+            error = False
 
-            request.flash['success'] = ugettext("New issue "
-                                                "successfully created.")
-            # Redirect after POST
-            return HttpResponseRedirect(reverse('issue-creation-done'))
+            # Send issue via email?
+            if settings.EMAIL_BACKEND_ENABLED and \
+                        settings.EMAIL_BACKEND_SEND_NEW_ISSUES_TO:
+                from tratten.backends.email.email import on_new_issue_send_mail
+                try:
+                    on_new_issue_send_mail(issue.id)
+                except socket.gaierror:
+                    # TODO: Better error handling
+                    request.flash['error'] = ugettext("Issue could not be "
+                                                      "sent via email.")
+                    error = True
+
+            if not error:
+                request.flash['success'] = ugettext("New issue successfully "
+                                                    "created.")
+                # Redirect after POST
+                return HttpResponseRedirect(reverse('issue-creation-done'))
     else:
         # Initialize form
         issue_form_defaults = \
@@ -116,7 +132,7 @@ def create(request):
                          'description': '',
                          'urgent': 0,
                          'due_date': '',}
-        issue_form = IssueForm(issue_form_defaults)
+        issue_form = IssueForm(initial=issue_form_defaults)
 
     t = loader.get_template('create.html')
     c = RequestContext(request,
@@ -141,8 +157,20 @@ def list(request):
     category_name = get_flatcontent('category-name')
     categories = Category.objects.all()
 
+    if request.method == 'GET' and 'filter' in request.GET:
+        project_filter = request.GET['filter']
+    else:
+        project_filter = None
+
+    # Send issue via email?
+    if settings.MANTIS_ISSUE_LIST_BACKEND_ENABLED and \
+                settings.MANTIS_ISSUE_LIST_BACKEND_REPORT_PERMALINK_URL:
+        from tratten.backends.mantis.mantis import fetch_issues
+        issue_list = fetch_issues(project_filter)
+
     t = loader.get_template('list.html')
     c = RequestContext(request,
                        {'categories': categories,
-                        'category_name': category_name})
+                        'category_name': category_name,
+                        'issue_list': issue_list})
     return HttpResponse(t.render(c))

@@ -1,0 +1,4 @@
+Id,Project,Reporter,Assigned To,Priority,Severity,Reproducibility,Product Version,Projection,Category,Date Submitted,ETA,OS,OS Version,Platform,View Status,Updated,Summary,Status,Resolution,Fixed in Version
+0007368,One,jonas,,normal,minor,have not tried,,none,Hardware,2009-09-16,none,,,,public,2009-09-16,Test 1,new,open,
+0007367,Two,jonas,,normal,minor,always,,none,Web server,2009-08-16,none,,,,public,2009-09-15,Test 2,resolved,open,
+0007238,Three,jonas,karin,normal,minor,always,,none,Database,2009-07-20,none,,,,public,2009-09-14,Test 3,assigned,open,

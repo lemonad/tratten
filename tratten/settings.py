@@ -6,27 +6,24 @@ import posix
 
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
-# logging.basicConfig(
-#     level = logging.DEBUG,
-#     format = '%(asctime)s %(levelname)s %(message)s',
-#     filename = '/tmp/tratten.log',
-#     filemode = 'w'
-# )
-
 PROJECT_ROOT = os.path.join(os.path.dirname(__file__), '/')
 
-ADMINS = (
-    ('jnt', 'jonasnockert@gmail.com'),
-)
+# Moved to local_settings:
+#
+# ADMINS = (
+#     ('admin', 'admin@example.com'),
+# )
+#
+# MANAGERS = ADMINS
 
-MANAGERS = ADMINS
-
-DATABASE_ENGINE = 'sqlite3'    # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_NAME = 'tratten.db'
-DATABASE_USER = ''             # Not used with sqlite3.
-DATABASE_PASSWORD = ''         # Not used with sqlite3.
-DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
-DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
+# Moved to production, development and local_settings:
+#
+# DATABASE_ENGINE = ''      # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+# DATABASE_NAME = ''
+# DATABASE_USER = ''        # Not used with sqlite3.
+# DATABASE_PASSWORD = ''    # Not used with sqlite3.
+# DATABASE_HOST = ''        # Set to empty string for localhost. Not used with sqlite3.
+# DATABASE_PORT = ''        # Set to empty string for default. Not used with sqlite3.
 
 TIME_ZONE = 'Europe/Stockholm'
 
@@ -43,7 +40,6 @@ LANGUAGES = (
 # to load the internationalization machinery.
 USE_I18N = True
 
-
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'media')
@@ -59,7 +55,7 @@ MEDIA_URL = '/media/'
 ADMIN_MEDIA_PREFIX = '/admin_media/'
 
 # Don't share this with anybody.
-SECRET_KEY = '23094820398ehsfjkjsdhfsdfo8wy8ryw3r09ywh3roihw3krgwi3ur'
+SECRET_KEY = 'use-local-settings-py-to-set-this-to-something-else'
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -112,12 +108,52 @@ FIXTURE_DIRS = (
 
 SITE_ID = 1
 
-DEFAULT_FROM_EMAIL = "jonasnockert@gmail.com"
-SERVER_EMAIL = "jonasnockert@gmail.com"
-EMAIL_SUBJECT_PREFIX = "Tratten: "
-
 # The below LOGIN_URL and LOGOUT_URL doesn't seem to be used except
 # when unit testing views.
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_URL = '/logout/'
+
+EMAIL_SUBJECT_PREFIX = "Tratten: "
+DEFAULT_FROM_EMAIL = "do-not-reply@example.com"
+SERVER_EMAIL = "do-not-reply@example.com"
+# EMAIL_HOST = "localhost"
+# EMAIL_PORT = 25
+# EMAIL_HOST_USER = ""
+# EMAIL_HOST_PASSWORD = ""
+
+
+#
+# Settings for email backend (also see local settings)
+#
+EMAIL_BACKEND_ENABLED = True
+
+#
+# Settings for Mantis issue list backend (also see local settings)
+#
+# Observe that CSV Export columns are 1-based
+#
+#
+# Mantis Standard (English):
+#
+# Id, Project, Reporter, Assigned To, Priority, Severity, Reproducibility,
+# Product Version, Projection, Date Submitted, ETA, OS, OS Version, Platform,
+# View Status, Updated, Summary, Status, Resolution, Fixed in Version
+#
+MANTIS_ISSUE_LIST_BACKEND_ENABLED = True
+
+MANTIS_ISSUE_LIST_BACKEND_ID_NAME = "Id"
+MANTIS_ISSUE_LIST_BACKEND_ID_COL = 1
+MANTIS_ISSUE_LIST_BACKEND_PROJECT_NAME = "Project"
+MANTIS_ISSUE_LIST_BACKEND_PROJECT_COL = 2
+MANTIS_ISSUE_LIST_BACKEND_ASSIGNED_TO_NAME = "Assigned To"
+MANTIS_ISSUE_LIST_BACKEND_ASSIGNED_TO_COL = 4
+MANTIS_ISSUE_LIST_BACKEND_DATE_SUBMITTED_NAME = "Date Submitted"
+MANTIS_ISSUE_LIST_BACKEND_DATE_SUBMITTED_COL = 11
+MANTIS_ISSUE_LIST_BACKEND_SUMMARY_NAME = "Summary"
+MANTIS_ISSUE_LIST_BACKEND_SUMMARY_COL = 18
+MANTIS_ISSUE_LIST_BACKEND_STATUS_NAME = "Status"
+MANTIS_ISSUE_LIST_BACKEND_STATUS_COL = 19
+
+MANTIS_ISSUE_LIST_BACKEND_USE_PROJECT = "example"
+MANTIS_ISSUE_LIST_BACKEND_FILTER_ON_COL_NAME = "entity"

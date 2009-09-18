@@ -1,0 +1,47 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+#
+# Logging
+#
+logging.basicConfig(
+    level = logging.DEBUG,
+    format = '%(asctime)s %(levelname)s %(message)s',
+    filename = 'tratten.log',
+    filemode = 'w'
+)
+
+#
+# Database
+#
+DATABASE_PASSWORD = ''    # Not used with sqlite3.
+
+
+#
+# Miscellaneous
+#
+SECRET_KEY = 'change-this-into-something-else' # Don't share this with anybody.
+ADMINS = (
+    ('admin', 'admin@example.com'),
+)
+MANAGERS = ADMINS
+
+#
+# Email
+#
+DEFAULT_FROM_EMAIL = "do-not-reply@example.com"
+SERVER_EMAIL = "do-not-reply@example.com"
+EMAIL_HOST = "localhost"
+EMAIL_PORT = 25
+# EMAIL_HOST_USER
+# EMAIL_HOST_PASSWORD
+
+#
+# Settings for email backend
+#
+EMAIL_BACKEND_SEND_NEW_ISSUES_TO = "tratten@example.com"
+
+#
+# Settings for Mantis issue list backend
+#
+MANTIS_ISSUE_LIST_BACKEND_REPORT_PERMALINK_URL = "/tratten/backends/mantis/example/example-report.csv"

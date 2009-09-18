@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block metatitle %}{% trans "Report error" %}{% endblock %}
+{% block title %}{% trans "Report error" %}{% endblock %}
+{% block container %}
+<div id="listing">
+  <h3>URL: {{ url }}</h3>
+  <br/>
+  <form action="{% url errorreport %}?url={{ url }}" method="POST">
+    {{ form.as_p }}
+    <input type="submit" value="Submit" />
+  </form>
+  <br/>
+
+  {% if error_reports %}
+  <h3>{% trans "Error reports" %}</h3>
+  <table class="standard">
+    <tr><th>{% trans "Date" %}</th><th>{% trans "Status" %}</th><th>{% trans "Reported by" %}</th><th>{% trans "Text" %}</th></tr>
+    {% for r in error_reports %}
+      {% ifequal r.status 3 %}
+        <tr style="background-color:#eee;">
+      {% else %}
+        <tr class="{% cycle list-odd, list-even %}">
+      {% endifequal %}
+      <td>{{ r.date_created }}</td>
+      {% ifequal r.status 3 %}
+        <td>{{ r.get_status_display }}</td>
+      {% else %}
+        <td><strong>{{ r.get_status_display }}<strong></td>
+      {% endifequal %}
+      <td>{{ r.reported_by }}</td>
+      <td>{{ r.report|linebreaksbr }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+  {% endif %}
+</div>
+{% endblock %}
