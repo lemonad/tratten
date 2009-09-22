@@ -29,10 +29,10 @@ TIME_ZONE = 'Europe/Stockholm'
 LANGUAGE_CODE = 'sv-SE'
 # LANGUAGE_CODE = 'en-US'
 
-ugettext = lambda s: s
+gettext = lambda s: s
 LANGUAGES = (
-    ('en', ugettext('English')),
-    ('sv', ugettext('Swedish')),
+    ('en', gettext('English')),
+    ('sv', gettext('Swedish')),
 )
 
 # If you set this to False, Django will make some optimizations so as not

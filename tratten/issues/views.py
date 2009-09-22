@@ -41,7 +41,7 @@ class IssueForm(forms.ModelForm):
                 empty_label="")
         self.fields['urgent'] = forms.TypedChoiceField(
                 coerce=lambda x: bool(int(x)),
-                choices=((0, 'Nej'), (1, 'Ja')),
+                choices=((0, _('No')), (1, _('Yes'))),
                 widget=forms.RadioSelect)
         self.fields['summary'] = forms.CharField(
                 required=True,

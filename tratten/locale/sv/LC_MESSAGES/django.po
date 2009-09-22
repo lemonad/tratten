@@ -1,0 +1,615 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-09-22 10:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: settings.py:34
+msgid "English"
+msgstr "Engelska"
+
+#: settings.py:35
+msgid "Swedish"
+msgstr "Svenska"
+
+#: urls.py:17 login/urls.py:17
+msgid "^$"
+msgstr ""
+
+#: urls.py:18
+msgid "^create$"
+msgstr "^skapa$"
+
+#: urls.py:19
+msgid "^list$"
+msgstr "^lista$"
+
+#: urls.py:20
+msgid "^done$"
+msgstr "^klar$"
+
+#: urls.py:23
+msgid "^login/"
+msgstr "^logga-in/"
+
+#: urls.py:27
+msgid "^logout/$"
+msgstr "^logga-ut/$"
+
+#: urls.py:32
+msgid "^error-report/$"
+msgstr "^felrapport/$"
+
+#: urls.py:38 preferences/urls.py:16
+msgid "^language/$"
+msgstr "^sprak/$"
+
+#: urls.py:43
+msgid "^ping/$"
+msgstr ""
+
+#: urls.py:46
+msgid "^preferences/"
+msgstr "^installningar/"
+
+#: backends/mantis/mantis.py:51
+msgid "Could not fetch issue list from Mantis."
+msgstr "Kunde inte hämta ärendelistan från Mantis."
+
+#: backends/mantis/mantis.py:74
+msgid "Mantis issue list in unexpected format (ID)."
+msgstr "Mantis ärendelista i oväntat format (ID)."
+
+#: backends/mantis/mantis.py:76
+msgid "Mantis issue list in unexpected format (PROJECT)."
+msgstr "Mantis ärendelista i oväntat format (PROJECT)."
+
+#: backends/mantis/mantis.py:78
+msgid "Mantis issue list in unexpected format (ASSIGNED_TO)."
+msgstr "Mantis ärendelista i oväntat format (ASSIGNED_TO)."
+
+#: backends/mantis/mantis.py:80
+msgid "Mantis issue list in unexpected format (DATE_SUBMITTED)."
+msgstr "Mantis ärendelista i oväntat format (DATE_SUBMITTED)."
+
+#: backends/mantis/mantis.py:82
+msgid "Mantis issue list in unexpected format (SUMMARY)."
+msgstr "Mantis ärendelista i oväntat format (SUMMARY)."
+
+#: backends/mantis/mantis.py:84
+msgid "Mantis issue list in unexpected format (STATUS)."
+msgstr "Mantis ärendelista i oväntat format (STATUS)."
+
+#: backends/mantis/mantis.py:90
+msgid "Project filter not in list of known categories."
+msgstr "Projektfiltret inte i listan över kända kategorier."
+
+#: categories/admin.py:11 categories/models.py:18 flatcontent/models.py:23
+#: issues/templates/create.html:44
+msgid "Name"
+msgstr "Namn"
+
+#: categories/models.py:22 issues/models.py:55
+msgid "Created"
+msgstr "Skapad"
+
+#: categories/models.py:25 issues/models.py:58
+msgid "Changed"
+msgstr "Ändrad"
+
+#: categories/models.py:33
+msgid "category"
+msgstr "kategori"
+
+#: categories/models.py:34
+msgid "categories"
+msgstr "kategorier"
+
+#: errorreports/models.py:31
+msgid "Open"
+msgstr "Öppen"
+
+#: errorreports/models.py:32
+msgid "More information needed"
+msgstr "Mer information behövs"
+
+#: errorreports/models.py:33
+msgid "Closed"
+msgstr "Stängd"
+
+#: errorreports/models.py:35
+msgid "relative url"
+msgstr "relativ url"
+
+#: errorreports/models.py:38
+msgid "reported by"
+msgstr "rapporterad av"
+
+#: errorreports/models.py:42 errorreports/models.py:60
+msgid "error report"
+msgstr "felrapport"
+
+#: errorreports/models.py:43
+msgid "status"
+msgstr "status"
+
+#: errorreports/models.py:46
+msgid "created (date)"
+msgstr "skapad (datum)"
+
+#: errorreports/models.py:49
+msgid "modified (date)"
+msgstr "modifierad (datum)"
+
+#: errorreports/models.py:61
+msgid "error reports"
+msgstr "felrapporter"
+
+#: errorreports/models.py:63
+msgid "Receives email when errors are reported"
+msgstr "Får epost när fel rapporteras"
+
+#: errorreports/views.py:34
+msgid ""
+"Describe the error(s) here. If possible, also mention what you think the "
+"correct information should be."
+msgstr "Beskriv felet här. Om möjligt, nämn också vad du tycker den korrekta information skall vara."
+
+#: errorreports/views.py:36
+msgid "Your email address"
+msgstr "Din epostadress"
+
+#: errorreports/views.py:49
+msgid "Query string missing."
+msgstr "Query-string saknas."
+
+#: errorreports/views.py:81
+#, python-format
+msgid "error report from %(reported_by)s"
+msgstr "felrapport av %(reported_by)s"
+
+#: errorreports/views.py:84
+#, python-format
+msgid ""
+"URL: http://%(domain)s%(path)s\n"
+"Reported by: %(reported_by)s\n"
+"\n"
+"%(report)s"
+msgstr ""
+
+#: errorreports/views.py:96
+msgid ""
+"\n"
+"\n"
+"----------\n"
+"This email has been automatically sent to all administrators listed in "
+"'settings.ADMINS'.\n"
+"Note that you can use the permission 'receive_email_on_error_reports' to "
+"select who will receive error reports."
+msgstr ""
+
+#: errorreports/views.py:105
+msgid ""
+"Your error report was successfully created and emailed to all administrators."
+msgstr ""
+
+#: errorreports/views.py:116
+msgid ""
+"Your error report was successfully created and emailed to assigned staff "
+"members."
+msgstr ""
+
+#: errorreports/views.py:124
+msgid "Not all fields were properly filled in."
+msgstr "Inte alla fält fylldes i korrekt."
+
+#: errorreports/templates/report-error.html:3
+#: errorreports/templates/report-error.html:4
+msgid "Report error"
+msgstr "Rapportera fel"
+
+#: errorreports/templates/report-error.html:16
+msgid "Error reports"
+msgstr "Felrapporter"
+
+#: errorreports/templates/report-error.html:18 issues/templates/list.html:45
+msgid "Date"
+msgstr "Datum"
+
+#: errorreports/templates/report-error.html:18 issues/templates/list.html:46
+msgid "Status"
+msgstr "Status"
+
+#: errorreports/templates/report-error.html:18
+msgid "Reported by"
+msgstr "Rapporterad av"
+
+#: errorreports/templates/report-error.html:18
+msgid "Text"
+msgstr "Text"
+
+#: flatcontent/admin.py:11
+msgid "Identifier"
+msgstr "Identifierare"
+
+#: flatcontent/admin.py:13 flatcontent/models.py:29
+msgid "Content"
+msgstr "Innehåll"
+
+#: flatcontent/models.py:26
+msgid "Language code"
+msgstr "Språkkod"
+
+#: flatcontent/models.py:37 flatcontent/models.py:38
+msgid "flat content"
+msgstr "Platt innehåll"
+
+#: flatcontent/models.py:65
+msgid "No matching content for '"
+msgstr "Inget matchande innehåll för '"
+
+#: issues/admin.py:11
+msgid "Reporter"
+msgstr "Rapporterare"
+
+#: issues/admin.py:13 issues/models.py:32
+msgid "Category"
+msgstr "Kategori"
+
+#: issues/admin.py:15
+msgid "Issue"
+msgstr "Ärende"
+
+#: issues/admin.py:17
+msgid "Due date (optional)"
+msgstr "Klardatum (valfri)"
+
+#: issues/models.py:34 issues/templates/create.html:101
+#: issues/templates/list.html:48
+msgid "Summary"
+msgstr "Sammanfattning"
+
+#: issues/models.py:37 issues/templates/create.html:111
+msgid "Description"
+msgstr "Beskrivning"
+
+#: issues/models.py:39
+msgid "Urgent?"
+msgstr "Akut?"
+
+#: issues/models.py:42
+msgid "Due date"
+msgstr "Klardatum"
+
+#: issues/models.py:46
+msgid "Reporter name"
+msgstr "Rapporterare, namn"
+
+#: issues/models.py:49
+msgid "Reporter email"
+msgstr "Rapporterare, epost"
+
+#: issues/models.py:52
+msgid "Reporter phone number"
+msgstr "Rapporterare, telefon"
+
+#: issues/models.py:65
+msgid "issue"
+msgstr "ärende"
+
+#: issues/models.py:66
+msgid "issues"
+msgstr "ärenden"
+
+#: issues/tests.py:81 issues/tests.py:90 issues/tests.py:99
+#: issues/tests.py:108 issues/tests.py:117
+msgid "This field is required."
+msgstr "Det här fältet måste fyllas i."
+
+#: issues/views.py:96
+msgid "One or more fields were not properly filled in."
+msgstr "Ett eller flera fält fylldes inte i korrekt."
+
+#: issues/views.py:119
+msgid "Issue could not be sent via email."
+msgstr "Ärendet kunde inte skickas via epost."
+
+#: issues/views.py:124
+msgid "New issue successfully created."
+msgstr "Nytt ärende skapades."
+
+#: issues/templates/create.html:3 issues/templates/create.html.py:30
+#: issues/templates/create.html:33 issues/templates/done.html:11
+#: issues/templates/index.html:48 issues/templates/list.html:11
+msgid "New issue"
+msgstr "Nytt ärende"
+
+#: issues/templates/create.html:35 issues/templates/done.html:13
+#: issues/templates/index.html:54 issues/templates/list.html:3
+#: issues/templates/list.html.py:13
+msgid "Issue status"
+msgstr "Ärendestatus"
+
+#: issues/templates/create.html:37 issues/templates/done.html:15
+#: issues/templates/list.html:15
+msgid "Help"
+msgstr "Hjälp"
+
+#: issues/templates/create.html:53
+msgid "Email"
+msgstr "Epost"
+
+#: issues/templates/create.html:62
+msgid "Phone"
+msgstr "Telefon"
+
+#: issues/templates/create.html:82
+msgid "Is this an emergency?"
+msgstr "Är det här akut?"
+
+#: issues/templates/create.html:94
+msgid ""
+"You've marked this issue as an emergency. Are you certain that it can not "
+"wait?"
+msgstr "Du har angivit att situationen är akut &mdash; är du helt säker på att det inte kan vänta?"
+
+#: issues/templates/create.html:121
+msgid "Date you would want this completed? (yyyy-mm-dd)"
+msgstr "Önskad klartidpunkt (yyyy-mm-dd)"
+
+#: issues/templates/create.html:128
+msgid "Send"
+msgstr "Skicka"
+
+#: issues/templates/done.html:3 issues/templates/done.html.py:8
+msgid "Issue registered"
+msgstr "Ärende registrerat"
+
+#: issues/templates/index.html:49
+msgid "Before creating an issue, check if it has already been reported."
+msgstr "Kontrollera gärna om det fel du råkat ut för redan är inrapporterat."
+
+#: issues/templates/index.html:55
+msgid "See current status of reported issues."
+msgstr "Se aktuell status på de ärenden som inrapporterats."
+
+#: issues/templates/list.html:22
+msgid "Filter on"
+msgstr "Filtrera på"
+
+#: issues/templates/list.html:34
+msgid "Filter"
+msgstr "Filtrera"
+
+#: issues/templates/list.html:44
+msgid "Project"
+msgstr "Projekt"
+
+#: issues/templates/list.html:47
+msgid "Assigned to"
+msgstr "Tilldelad till"
+
+#: issues/templates/list.html:57
+msgid "issue #"
+msgstr "ärende #"
+
+#: login/urls.py:20
+msgid "^new-password/$"
+msgstr "^nytt-losenord/$"
+
+#: login/urls.py:25
+msgid "^new-password/sent/$"
+msgstr "^nytt-losenord/skickat/$"
+
+#: login/urls.py:29
+msgid "^new-password/complete/$"
+msgstr "^nytt-losenord/klart/$"
+
+#: login/urls.py:33
+msgid "^new-password/(?P<uidb36>[0-9A-Za-z]+)-(?P<token>.+?)/$"
+msgstr "^nytt-losenord/(?P<uidb36>[0-9A-Za-z]+)-(?P<token>.+?)/$"
+
+#: login/templates/account-disabled.html:2
+#: login/templates/account-disabled.html:3
+#: login/templates/account-disabled.html:5
+msgid "Account disabled"
+msgstr "Konto spärrat"
+
+#: login/templates/login-error.html:2 login/templates/login-error.html.py:3
+msgid "Login error"
+msgstr "Fel vid login"
+
+#: login/templates/login.html:3 login/templates/login.html.py:4
+#: login/templates/login.html:19
+#: login/templates/password-reset-complete.html:7
+msgid "Log in"
+msgstr "Logga in"
+
+#: login/templates/login.html:8
+msgid "Your username and password did not match. Please try again."
+msgstr "Ditt användarnamn och lösenord överensstämde inte. Var god försök igen."
+
+#: login/templates/login.html:11
+msgid ""
+"Please observe that if this is your first time logging in, choose the "
+"\"forgot password\" link under the form to create a password."
+msgstr ""
+"Ifall det här är första gången du loggar in, klicka på länken för "
+"\"glömt lösenord\" under formuläret för att skapa ett lösenord."
+
+#: login/templates/login.html:17
+msgid "Forgot your password?"
+msgstr "Glömt ditt lösenord?"
+
+#: login/templates/logout.html:3 login/templates/logout.html.py:4
+msgid "Logged out"
+msgstr "Utloggad"
+
+#: login/templates/password-reset-complete.html:3
+#: login/templates/password-reset-complete.html:4
+msgid "Password reset complete"
+msgstr "Lösenordsåterställning klar"
+
+#: login/templates/password-reset-complete.html:6
+msgid "Your password has been set. You may go ahead and log in now."
+msgstr "Ditt lösenord har skapats. Du kan logga in nu."
+
+#: login/templates/password-reset-confirm.html:3
+msgid "Password reset"
+msgstr "Lösenordsåterställning"
+
+#: login/templates/password-reset-confirm.html:4
+msgid "Enter new password"
+msgstr "Mata in nytt lösenord"
+
+#: login/templates/password-reset-confirm.html:7
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+"Var god mata in ditt nya lösenord två gånger så vi kan verifiera att det "
+"skrevs in korrekt."
+
+
+#: login/templates/password-reset-confirm.html:11
+msgid "New password"
+msgstr "Nytt lösenord"
+
+#: login/templates/password-reset-confirm.html:13
+msgid "Confirm password"
+msgstr "Bekräfta lösenord"
+
+#: login/templates/password-reset-confirm.html:14
+msgid "Change my password"
+msgstr "Ändra mitt lösenord"
+
+#: login/templates/password-reset-confirm.html:17
+msgid "Password reset unsuccessful"
+msgstr "Lösenordsåterställning misslyckades"
+
+#: login/templates/password-reset-confirm.html:18
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a new password reset."
+msgstr ""
+"Länken för lösenordsåterställning var ogiltig, troligen för att den redan "
+"använts. Var god begär en ny lösenordsåterställning."
+
+#: login/templates/password-reset-done.html:3
+#: login/templates/password-reset-done.html:4
+msgid "Password reset successful"
+msgstr "Lösenordsåterställning lyckades"
+
+#: login/templates/password-reset-done.html:6
+msgid ""
+"We've e-mailed you instructions for setting your password to the e-mail "
+"address you submitted. You should be receiving it shortly."
+msgstr ""
+"Vi har mejlat dig instruktioner för att sätta ett nytt lösenord via "
+"epost-adressen du angav. Du bör få det inom kort."
+
+#: login/templates/password-reset-email.html:2
+#, python-format
+msgid ""
+"Someone, probably you, requested a password reset for your\n"
+"user account at %(site_name)s."
+msgstr ""
+"Någon, troligen du själv, har begärt en lösenordsåterställning\n"
+"för ditt användarkonto på %(site_name)s."
+
+#: login/templates/password-reset-email.html:5
+msgid "Please go to the following page and choose a new password:"
+msgstr "Var god besök följande sida och välj ett nytt lösenord:"
+
+#: login/templates/password-reset-email.html:9
+msgid "Your username, in case you've forgotten:"
+msgstr "Ditt användarnamn, i det fall du glömt:"
+
+#: login/templates/password-reset-email.html:11
+msgid "Have a nice day!"
+msgstr "Ha en bra dag!"
+
+#: login/templates/password-reset-form.html:3
+#: login/templates/password-reset-form.html:4
+msgid "Forgot password?"
+msgstr "Glömt lösenordet?"
+
+#: login/templates/password-reset-form.html:6
+msgid ""
+"Forgotten your password? Enter your e-mail address below, and we'll e-mail "
+"instructions for setting a new one."
+msgstr "Glömt ditt lösenord? Skriv in din epostadress nedan så mejlar vi "
+"dig instruktionerna för att skapa ett nytt."
+
+#: login/templates/password-reset-form.html:9
+msgid "E-mail address"
+msgstr "Epostadress"
+
+#: login/templates/password-reset-form.html:10
+msgid "Reset my password"
+msgstr "Återställ mitt lösenord"
+
+#: preferences/templates/select_language.html:3
+msgid "Select language"
+msgstr "Välj språk"
+
+#: preferences/templates/select_language.html:4
+msgid "Select your preferred language"
+msgstr "Välj det språk som du föredrar"
+
+#: templates/404.html:3 templates/404.html.py:4
+msgid "Page not found"
+msgstr "Sidan hittades inte"
+
+#: templates/404.html:9
+msgid "Unfortunately, what you were looking for could not be found."
+msgstr "Det som du letade efter kunde tyvärr inte hittas."
+
+#: templates/404.html:10
+#, python-format
+msgid ""
+"If you believe this is an error, we would really appreciate if you could "
+"write an <a href=\"%(errorreporturl)s?url=/\">error report</a>."
+msgstr ""
+"Om du tror att det här är ett fel så uppskattar vi om du kan skriva en "
+"<a href=\"%(errorreporturl)s?url=/\">felrapport</a>."
+
+#: templates/500.html:3 templates/500.html.py:4
+msgid "Internal Server Error"
+msgstr "Internt serverfel"
+
+#: templates/500.html:8
+msgid ""
+"You've come across a bug! We've been notified of the problem and will try to "
+"fix it as soon as possible."
+msgstr ""
+"Du har hittat en bugg! De systemansvariga har notifierats och kommer "
+"försöka åtgärda problemet så fort som möjligt."
+
+#: templates/500.html:9
+msgid "Thank you for your patience!"
+msgstr "Tack för ditt tålamod!"
+
+#: templates/base.html:75
+msgid "About"
+msgstr "Om"
+
+#: templates/base.html:78
+msgid "Send feedback"
+msgstr "Skicka feedback"
+
+#: templates/base.html:81
+msgid "Administration"
+msgstr "Administration"

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% block metatitle %}Ärendestatus{% endblock %}
+{% block metatitle %}{% trans "Issue status" %}{% endblock %}
 {% block reporterrorlink %}{% url errorreport %}?url={% url startpage %}{% endblock %}
 {% block container %}
 <div class='span-10 last'>
@@ -8,18 +8,18 @@
     <h2>Ärendestatus</h2>
 </div>
 <div id="menubar" class='span-4 last right'>
-    <a href="{% url create-issue %}">Nytt ärende</a>
+    <a href="{% url create-issue %}">{% trans "New issue" %}</a>
     <span class="separator">|</span>
-    <span class="selected-item">Ärendestatus</span>
+    <span class="selected-item">{% trans "Issue status" %}</span>
     <span class="separator">|</span>
-    <a href="help.html">Hjälp</a>
+    <a href="help.html">{% trans "Help" %}</a>
     </div>
 </div>
 
 
 <div class='span-10 last'>
     <div class='span-4 label'>
-        <label for="name">Filtrera på {{ category_name|lower }}</label>
+        <label for="name">{% trans "Filter on" %} {{ category_name|lower }}</label>
     </div>
     <div class='span-6 last'>&nbsp;</div>
 
@@ -31,7 +31,7 @@
                 <option value="{{ category.name }}">{{ category.name }}</option>
                 {% endfor %}
             </select>
-            <input class="submit" type="submit" value="OK" />
+            <input class="submit" type="submit" value="{% trans "Filter" %}" />
         </form>
     </div>
     <div class='span-6 last'>&nbsp;</div>
@@ -41,11 +41,11 @@
 <div class='span-10 last'>
     <table>
         <tr>
-            <th>Projekt</th>
-            <th>Datum</th>
-            <th>Status</th>
-            <th>Tilldelad</th>
-            <th>Rubrik</th>
+            <th>{% trans "Project" %}</th>
+            <th>{% trans "Date" %}</th>
+            <th>{% trans "Status" %}</th>
+            <th>{% trans "Assigned to" %}</th>
+            <th>{% trans "Summary" %}</th>
         </tr>
         {% for issue_id, issue_project, assigned_to, issue_date_submitted, issue_summary, issue_status in issue_list %}
         <tr class="{% cycle 'list-odd' 'list-even' %}">
@@ -54,7 +54,7 @@
             <td>{{ issue_status|capfirst }}</td>
             <td>{{ assigned_to }}</td>
             <td class="summary">
-                {{ issue_summary }} <span>(<a href="#">ärende #{{ issue_id }}</a>)</span>
+                {{ issue_summary }} <span>(<a href="#">{% trans "issue #" %}{{ issue_id }}</a>)</span>
             </td>
         </tr>
         {% endfor %}

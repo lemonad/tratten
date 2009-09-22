@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% block metatitle %}Ärende registrerat{% endblock %}
+{% block metatitle %}{% trans "New issue" %}{% endblock %}
 {% block reporterrorlink %}{% url errorreport %}?url={% url startpage %}{% endblock %}
 {% block javascript %}
   <script type='text/javascript'>
@@ -27,21 +27,21 @@
 <form id="dummy" action="" method="post">
     <div class='span-10 last'>
         <div class="span-6">
-            <h2>Nytt ärende</h2>
+            <h2>{% trans "New issue" %}</h2>
         </div>
         <div id="menubar" class='span-4 last right'>
-            <span class="selected-item">Nytt ärende</span>
+            <span class="selected-item">{% trans "New issue" %}</span>
             <span class="separator">|</span>
-            <a href="{% url list-issues %}">Ärendestatus</a>
+            <a href="{% url list-issues %}">{% trans "Issue status" %}</a>
             <span class="separator">|</span>
-            <a href="help.html">Hjälp</a>
+            <a href="help.html">{% trans "Help" %}</a>
         </div>
     </div>
 
 
     <div class='span-3'>
         <div class='span-3 label last'>
-            <label {% if form.reporter_name.errors %}class="label-error"{% endif %} for="id_reporter_name">Namn *</label>
+            <label {% if form.reporter_name.errors %}class="label-error"{% endif %} for="id_reporter_name">{% trans "Name" %} *</label>
         </div>
 
         <div class='span-3 last'>
@@ -50,7 +50,7 @@
     </div>
     <div class='span-4'>
         <div class='span-4 label last'>
-            <label {% if form.reporter_email.errors %}class="label-error"{% endif %} for="id_reporter_email">Epost *</label>
+            <label {% if form.reporter_email.errors %}class="label-error"{% endif %} for="id_reporter_email">{% trans "Email" %} *</label>
         </div>
 
         <div class='span-4 last'>
@@ -59,7 +59,7 @@
     </div>
     <div class='span-3 last'>
         <div class='span-3 label last'>
-            <label {% if form.reporter_phone.errors %}class="label-error"{% endif %} for="id_reporter_phone">Telefon</label>
+            <label {% if form.reporter_phone.errors %}class="label-error"{% endif %} for="id_reporter_phone">{% trans "Phone" %}</label>
         </div>
 
         <div class='span-3 last'>
@@ -79,7 +79,7 @@
     </div>
     <div class='span-4'>
         <div class='span-4 label last'>
-            <label {% if form.urgent.errors %}class="label-error"{% endif %} for="id_urgent">Är ärendet akut?</label>
+            <label {% if form.urgent.errors %}class="label-error"{% endif %} for="id_urgent">{% trans "Is this an emergency?" %}</label>
         </div>
 
         <div id="urgent-radio" class="span-4 last">
@@ -91,14 +91,14 @@
 
     <div style="display:none;" id="urgency-notice" class='span-10 last'>
         <div class='notice'>
-            Du har angivit att situationen är akut &mdash; är du helt säker på att det inte kan vänta?
+            {% trans "You've marked this issue as an emergency. Are you certain that it can not wait?" %}
         </div>
     </div>
 
 
     <div class='span-10 last'>
         <div class='span-10 label last'>
-            <label {% if form.summary.errors %}class="label-error"{% endif %} for="id_summary">Sammanfattning *</label>
+            <label {% if form.summary.errors %}class="label-error"{% endif %} for="id_summary">{% trans "Summary" %} *</label>
         </div>
         <div class='span-10 last'>
             {{ form.summary }}
@@ -108,7 +108,7 @@
 
     <div class='span-10 last'>
         <div class='span-10 label last'>
-            <label {% if form.description.errors %}class="label-error"{% endif %} for="id_description">Beskrivning</label>
+            <label {% if form.description.errors %}class="label-error"{% endif %} for="id_description">{% trans "Description" %}</label>
         </div>
         <div class='span-10 last'>
             {{ form.description }}
@@ -118,14 +118,14 @@
     {% comment %}
     <div class='span-10 last'>
         <div class='span-10 label last'>
-            <label {% if form.due_date.errors %}class="label-error"{% endif %} for="id_due_date">Önskad klartidpunkt (yyyy-mm-dd)</label>
+            <label {% if form.due_date.errors %}class="label-error"{% endif %} for="id_due_date">{% trans "Date you would want this completed? (yyyy-mm-dd)" %}</label>
         </div>
         <div class='span-2'>
             {{ form.due_date }}
         </div>
         <div class='span-6'>&nbsp;</div>
         <div class='span-2 last right'>
-            <input class="submit" type="submit" value="Skicka" />
+            <input class="submit" type="submit" value="{% trans "Send" %}" />
         </div>
     </div>
     {% endcomment %}
