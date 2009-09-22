@@ -115,19 +115,19 @@
         </div>
     </div>
 
-    {% comment %}
     <div class='span-10 last'>
+        {% comment %}
         <div class='span-10 label last'>
             <label {% if form.due_date.errors %}class="label-error"{% endif %} for="id_due_date">{% trans "Date you would want this completed? (yyyy-mm-dd)" %}</label>
         </div>
         <div class='span-2'>
             {{ form.due_date }}
         </div>
-        <div class='span-6'>&nbsp;</div>
+        {% endcomment %}
+        <div class='span-8'>&nbsp;</div>
         <div class='span-2 last right'>
             <input class="submit" type="submit" value="{% trans "Send" %}" />
         </div>
     </div>
-    {% endcomment %}
 </form>
 {% endblock %}
