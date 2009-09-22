@@ -17,6 +17,7 @@
 # -*- coding: utf-8 -*-
 from django.conf import settings
 from django.core.mail import send_mail
+from django.template import Context, loader, Template
 
 from tratten.categories.models import Category
 from tratten.issues.models import Issue
@@ -25,25 +26,26 @@ def on_new_issue_send_mail(issue_id):
     # TODO mark as sent in issues model
     i = Issue.objects.get(id=issue_id)
 
-    xml = """\
-<tratten>
-    <reporter_name><![CDATA[%(name)s]]></reporter_name>
-    <reporter_email><![CDATA[%(email)s]]></reporter_email>
-    <reporter_phone><![CDATA[%(phone)s]]></reporter_phone>
-    <entity><![CDATA[%(entity)s]]></entity>
+    t = Template("""<tratten>
+    <reporter_name><![CDATA[{{ name }}]]></reporter_name>
+    <reporter_email><![CDATA[{{ email }}]]></reporter_email>{% if phone %}
+    <reporter_phone><![CDATA[{{ phone }}]]></reporter_phone>{% endif %}
+    <entity><![CDATA[{{ entity }}]]></entity>
     <issue_type>Incident</issue_type>
-    <urgent>%(urgent)s</urgent>
-    <summary><![CDATA[%(summary)s]]></summary>
-    <description><![CDATA[%(description)s]]></description>
-    <reporter_due_date>%(due_date)s</reporter_due_date>
-</tratten>""" % {'name': i.reporter_name,
-           'email': i.reporter_email,
-           'phone': i.reporter_phone,
-           'entity': i.category.name,
-           'urgent': "Ja" if i.urgent else "Nej",
-           'summary': i.summary,
-           'description': i.description,
-           'due_date': i.due_date}
+    <urgent>{{ urgent }}</urgent>
+    <summary><![CDATA[{{ summary }}]]></summary>
+    <description><![CDATA[{{ description }}]]></description>{% if due_date %}
+    <reporter_due_date>{{ due_date }}</reporter_due_date>{% endif %}
+</tratten>""")
+    c = Context({'name': i.reporter_name,
+                 'email': i.reporter_email,
+                 'phone': i.reporter_phone,
+                 'entity': i.category.name,
+                 'urgent': "Ja" if i.urgent else "Nej",
+                 'summary': i.summary,
+                 'description': i.description,
+                 'due_date': i.due_date})
+    xml = t.render(c)
 
     send_mail(
         '[Tratten]',
