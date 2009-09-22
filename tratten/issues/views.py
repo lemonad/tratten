@@ -87,6 +87,7 @@ def create(request):
     """Create issue."""
 
     category_name = get_flatcontent('category-name')
+    issue_template = get_flatcontent('issue-template')
     categories = Category.objects.all()
 
     if request.method == 'POST':
@@ -129,7 +130,7 @@ def create(request):
         issue_form_defaults = \
                         {'category': '',
                          'summary': '',
-                         'description': '',
+                         'description': issue_template,
                          'urgent': 0,
                          'due_date': '',}
         issue_form = IssueForm(initial=issue_form_defaults)

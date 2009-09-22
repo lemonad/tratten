@@ -4,7 +4,7 @@
         "model": "flatcontent.flatcontent",
         "fields": {
             "name": "index-text",
-            "language_code": "sv-SE",
+            "language_code": "en-US",
             "content": "<p>Welcome!</p>"
         }
     },
@@ -13,7 +13,7 @@
         "model": "flatcontent.flatcontent",
         "fields": {
             "name": "index-contact-information",
-            "language_code": "sv-SE",
+            "language_code": "en-US",
             "content": "Phone us at #1234 or <a href=\"mailto:tratten@example.com\">tratten@example.com</a>"
         }
     },
@@ -22,7 +22,7 @@
         "model": "flatcontent.flatcontent",
         "fields": {
             "name": "issue-creation-done-text",
-            "language_code": "sv-SE",
+            "language_code": "en-US",
             "content": "<p>Thanks for submitting the issue.</p>"
         }
     },
@@ -31,8 +31,17 @@
         "model": "flatcontent.flatcontent",
         "fields": {
             "name": "category-name",
-            "language_code": "sv-SE",
+            "language_code": "en-US",
             "content": "Category"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "flatcontent.flatcontent",
+        "fields": {
+            "name": "issue-template",
+            "language_code": "en-US",
+            "content": "When did you notice the problem?\n\nWhat can you do to reproduce it?\n\n1. \n2. \n3. \n\nWhat is the expected output? What do you see instead?\n\nWhen can we contact you if we need further information? When is it convenient to try to fix the problem?"
         }
     }
 ]

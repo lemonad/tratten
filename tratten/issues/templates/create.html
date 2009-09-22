@@ -115,6 +115,7 @@
         </div>
     </div>
 
+    {% comment %}
     <div class='span-10 last'>
         <div class='span-10 label last'>
             <label {% if form.due_date.errors %}class="label-error"{% endif %} for="id_due_date">Önskad klartidpunkt (yyyy-mm-dd)</label>
@@ -127,5 +128,6 @@
             <input class="submit" type="submit" value="Skicka" />
         </div>
     </div>
+    {% endcomment %}
 </form>
 {% endblock %}
