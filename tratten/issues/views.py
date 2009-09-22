@@ -47,7 +47,7 @@ class IssueForm(forms.ModelForm):
                 required=True,
                 widget=forms.TextInput(attrs={'class': 'span-10'}))
         self.fields['description'] = forms.CharField(
-                required=False,
+                required=True,
                 widget=forms.Textarea(attrs={'class': 'span-10'}))
         self.fields['due_date'] = forms.DateField(
                 required=False,
