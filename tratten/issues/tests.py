@@ -75,6 +75,7 @@ class IssueUnauthorizedTests(TestCase):
         response = self.client.post(reverse('create-issue'),
                                     {'urgent': 1,
                                      'summary': 'Test',
+                                     'description': 'Test',
                                      'reporter_name': 'Name',
                                      'reporter_email': 'test@example.com',})
         self.assertFormError(response, 'form', 'category',
@@ -84,6 +85,7 @@ class IssueUnauthorizedTests(TestCase):
         response = self.client.post(reverse('create-issue'),
                                     {'category': c.id,
                                      'summary': 'Test',
+                                     'description': 'Test',
                                      'reporter_name': 'Name',
                                      'reporter_email': 'test@example.com',})
         self.assertFormError(response, 'form', 'urgent',
@@ -93,9 +95,20 @@ class IssueUnauthorizedTests(TestCase):
         response = self.client.post(reverse('create-issue'),
                                     {'category': c.id,
                                      'urgent': 0,
+                                     'description': 'Test',
                                      'reporter_name': 'Name',
                                      'reporter_email': 'test@example.com',})
         self.assertFormError(response, 'form', 'summary',
+                             ugettext("This field is required."))
+
+        # Description missing
+        response = self.client.post(reverse('create-issue'),
+                                    {'category': c.id,
+                                     'urgent': 0,
+                                     'summary': 'Test',
+                                     'reporter_name': 'Name',
+                                     'reporter_email': 'test@example.com',})
+        self.assertFormError(response, 'form', 'description',
                              ugettext("This field is required."))
 
         # Reporter name missing
@@ -103,6 +116,7 @@ class IssueUnauthorizedTests(TestCase):
                                     {'category': c.id,
                                      'urgent': 0,
                                      'summary': 'Test',
+                                     'description': 'Test',
                                      'reporter_email': 'test@example.com',})
         self.assertFormError(response, 'form', 'reporter_name',
                              ugettext("This field is required."))
@@ -112,6 +126,7 @@ class IssueUnauthorizedTests(TestCase):
                                     {'category': c.id,
                                      'urgent': 0,
                                      'summary': 'Test',
+                                     'description': 'Test',
                                      'reporter_name': 'Name',})
         self.assertFormError(response, 'form', 'reporter_email',
                              ugettext("This field is required."))
@@ -129,6 +144,7 @@ class IssueUnauthorizedTests(TestCase):
                                     {'category': c.id,
                                      'urgent': 0,
                                      'summary': 'Test',
+                                     'description': 'Test',
                                      'reporter_name': 'Name',
                                      'reporter_email': 'test@example.com',})
         self.assertRedirects(response, reverse('issue-creation-done'),

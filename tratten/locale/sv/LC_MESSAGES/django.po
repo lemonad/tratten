@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-22 10:20+0200\n"
+"POT-Creation-Date: 2009-09-29 10:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,43 +24,43 @@ msgstr "Engelska"
 msgid "Swedish"
 msgstr "Svenska"
 
-#: urls.py:17 login/urls.py:17
+#: urls.py:23 login/urls.py:17
 msgid "^$"
 msgstr ""
 
-#: urls.py:18
+#: urls.py:24
 msgid "^create$"
 msgstr "^skapa$"
 
-#: urls.py:19
+#: urls.py:25
 msgid "^list$"
 msgstr "^lista$"
 
-#: urls.py:20
+#: urls.py:26
 msgid "^done$"
 msgstr "^klar$"
 
-#: urls.py:23
+#: urls.py:29
 msgid "^login/"
 msgstr "^logga-in/"
 
-#: urls.py:27
+#: urls.py:33
 msgid "^logout/$"
 msgstr "^logga-ut/$"
 
-#: urls.py:32
+#: urls.py:38
 msgid "^error-report/$"
 msgstr "^felrapport/$"
 
-#: urls.py:38 preferences/urls.py:16
+#: urls.py:44 preferences/urls.py:16
 msgid "^language/$"
 msgstr "^sprak/$"
 
-#: urls.py:43
+#: urls.py:49
 msgid "^ping/$"
 msgstr ""
 
-#: urls.py:46
+#: urls.py:52
 msgid "^preferences/"
 msgstr "^installningar/"
 
@@ -165,7 +165,9 @@ msgstr "Får epost när fel rapporteras"
 msgid ""
 "Describe the error(s) here. If possible, also mention what you think the "
 "correct information should be."
-msgstr "Beskriv felet här. Om möjligt, nämn också vad du tycker den korrekta information skall vara."
+msgstr ""
+"Beskriv felet här. Om möjligt, nämn också vad du tycker den korrekta "
+"information skall vara."
 
 #: errorreports/views.py:36
 msgid "Your email address"
@@ -313,10 +315,18 @@ msgstr "ärende"
 msgid "issues"
 msgstr "ärenden"
 
-#: issues/tests.py:81 issues/tests.py:90 issues/tests.py:99
-#: issues/tests.py:108 issues/tests.py:117
+#: issues/tests.py:82 issues/tests.py:92 issues/tests.py:102
+#: issues/tests.py:112 issues/tests.py:122 issues/tests.py:132
 msgid "This field is required."
 msgstr "Det här fältet måste fyllas i."
+
+#: issues/views.py:44
+msgid "No"
+msgstr "Nej"
+
+#: issues/views.py:44
+msgid "Yes"
+msgstr "Ja"
 
 #: issues/views.py:96
 msgid "One or more fields were not properly filled in."
@@ -332,12 +342,12 @@ msgstr "Nytt ärende skapades."
 
 #: issues/templates/create.html:3 issues/templates/create.html.py:30
 #: issues/templates/create.html:33 issues/templates/done.html:11
-#: issues/templates/index.html:48 issues/templates/list.html:11
+#: issues/templates/index.html:47 issues/templates/list.html:11
 msgid "New issue"
 msgstr "Nytt ärende"
 
 #: issues/templates/create.html:35 issues/templates/done.html:13
-#: issues/templates/index.html:54 issues/templates/list.html:3
+#: issues/templates/index.html:53 issues/templates/list.html:3
 #: issues/templates/list.html.py:13
 msgid "Issue status"
 msgstr "Ärendestatus"
@@ -363,13 +373,15 @@ msgstr "Är det här akut?"
 msgid ""
 "You've marked this issue as an emergency. Are you certain that it can not "
 "wait?"
-msgstr "Du har angivit att situationen är akut &mdash; är du helt säker på att det inte kan vänta?"
+msgstr ""
+"Du har angivit att situationen är akut &mdash; är du helt säker på att det "
+"inte kan vänta?"
 
 #: issues/templates/create.html:121
 msgid "Date you would want this completed? (yyyy-mm-dd)"
 msgstr "Önskad klartidpunkt (yyyy-mm-dd)"
 
-#: issues/templates/create.html:128
+#: issues/templates/create.html:129
 msgid "Send"
 msgstr "Skicka"
 
@@ -377,11 +389,11 @@ msgstr "Skicka"
 msgid "Issue registered"
 msgstr "Ärende registrerat"
 
-#: issues/templates/index.html:49
+#: issues/templates/index.html:48
 msgid "Before creating an issue, check if it has already been reported."
 msgstr "Kontrollera gärna om det fel du råkat ut för redan är inrapporterat."
 
-#: issues/templates/index.html:55
+#: issues/templates/index.html:54
 msgid "See current status of reported issues."
 msgstr "Se aktuell status på de ärenden som inrapporterats."
 
@@ -390,8 +402,8 @@ msgid "Filter on"
 msgstr "Filtrera på"
 
 #: issues/templates/list.html:34
-msgid "Filter"
-msgstr "Filtrera"
+msgid "OK"
+msgstr "OK"
 
 #: issues/templates/list.html:44
 msgid "Project"
@@ -439,15 +451,16 @@ msgstr "Logga in"
 
 #: login/templates/login.html:8
 msgid "Your username and password did not match. Please try again."
-msgstr "Ditt användarnamn och lösenord överensstämde inte. Var god försök igen."
+msgstr ""
+"Ditt användarnamn och lösenord överensstämde inte. Var god försök igen."
 
 #: login/templates/login.html:11
 msgid ""
 "Please observe that if this is your first time logging in, choose the "
 "\"forgot password\" link under the form to create a password."
 msgstr ""
-"Ifall det här är första gången du loggar in, klicka på länken för "
-"\"glömt lösenord\" under formuläret för att skapa ett lösenord."
+"Ifall det här är första gången du loggar in, klicka på länken för \"glömt "
+"lösenord\" under formuläret för att skapa ett lösenord."
 
 #: login/templates/login.html:17
 msgid "Forgot your password?"
@@ -481,7 +494,6 @@ msgid ""
 msgstr ""
 "Var god mata in ditt nya lösenord två gånger så vi kan verifiera att det "
 "skrevs in korrekt."
-
 
 #: login/templates/password-reset-confirm.html:11
 msgid "New password"
@@ -517,8 +529,8 @@ msgid ""
 "We've e-mailed you instructions for setting your password to the e-mail "
 "address you submitted. You should be receiving it shortly."
 msgstr ""
-"Vi har mejlat dig instruktioner för att sätta ett nytt lösenord via "
-"epost-adressen du angav. Du bör få det inom kort."
+"Vi har mejlat dig instruktioner för att sätta ett nytt lösenord via epost-"
+"adressen du angav. Du bör få det inom kort."
 
 #: login/templates/password-reset-email.html:2
 #, python-format
@@ -550,8 +562,9 @@ msgstr "Glömt lösenordet?"
 msgid ""
 "Forgotten your password? Enter your e-mail address below, and we'll e-mail "
 "instructions for setting a new one."
-msgstr "Glömt ditt lösenord? Skriv in din epostadress nedan så mejlar vi "
-"dig instruktionerna för att skapa ett nytt."
+msgstr ""
+"Glömt ditt lösenord? Skriv in din epostadress nedan så mejlar vi dig "
+"instruktionerna för att skapa ett nytt."
 
 #: login/templates/password-reset-form.html:9
 msgid "E-mail address"
@@ -569,6 +582,10 @@ msgstr "Välj språk"
 msgid "Select your preferred language"
 msgstr "Välj det språk som du föredrar"
 
+#: preferences/templates/select_language.html:17
+msgid "Set language"
+msgstr "Välj språk"
+
 #: templates/404.html:3 templates/404.html.py:4
 msgid "Page not found"
 msgstr "Sidan hittades inte"
@@ -583,8 +600,8 @@ msgid ""
 "If you believe this is an error, we would really appreciate if you could "
 "write an <a href=\"%(errorreporturl)s?url=/\">error report</a>."
 msgstr ""
-"Om du tror att det här är ett fel så uppskattar vi om du kan skriva en "
-"<a href=\"%(errorreporturl)s?url=/\">felrapport</a>."
+"Om du tror att det här är ett fel så uppskattar vi om du kan skriva en <a "
+"href=\"%(errorreporturl)s?url=/\">felrapport</a>."
 
 #: templates/500.html:3 templates/500.html.py:4
 msgid "Internal Server Error"
@@ -595,8 +612,8 @@ msgid ""
 "You've come across a bug! We've been notified of the problem and will try to "
 "fix it as soon as possible."
 msgstr ""
-"Du har hittat en bugg! De systemansvariga har notifierats och kommer "
-"försöka åtgärda problemet så fort som möjligt."
+"Du har hittat en bugg! De systemansvariga har notifierats och kommer försöka "
+"åtgärda problemet så fort som möjligt."
 
 #: templates/500.html:9
 msgid "Thank you for your patience!"
@@ -611,5 +628,12 @@ msgid "Send feedback"
 msgstr "Skicka feedback"
 
 #: templates/base.html:81
+msgid "Change language"
+msgstr "Välj språk"
+
+#: templates/base.html:84
 msgid "Administration"
 msgstr "Administration"
+
+#~ msgid "Filter"
+#~ msgstr "Filtrera"

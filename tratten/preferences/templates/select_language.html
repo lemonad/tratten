@@ -4,15 +4,18 @@
 {% block title %}{% trans "Select your preferred language" %}{% endblock %}
 {% block reporterrorlink %}{% url errorreport %}?url={% url select-language %}{% endblock %}
 {% block container %}
-<div>
-  <form action="/i18n/setlang/" method="post">
-  <input name="next" type="hidden" value="/" />
-  <select id="set-focus" name="language">
-  {% for lang in LANGUAGES %}
-  <option value="{{ lang.0 }}">{{ lang.1 }}</option>
-  {% endfor %}
-  </select>
-  <input type="submit" value="Go" />
-  </form>
-</div>
+<form action="/i18n/setlang/" method="post">
+    <input name="next" type="hidden" value="/" />
+    <div class='span-4'>
+        <select id="set-focus" name="language">
+        {% for lcode, lname in LANGUAGES %}
+        <option value="{{ lcode }}"{% ifequal LANGUAGE_CODE lcode %} selected="selected"{% endifequal %}>{{ lname }}</option>
+        {% endfor %}
+        </select>
+    </div>
+    <div class='span-2'>
+        <input class="submit" type="submit" value="{% trans "Set language" %}" />
+    </div>
+    <div class='span-4 last'>&nbsp;</div>
+</form>
 {% endblock %}
