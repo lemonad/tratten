@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+from django.conf import settings as _settings
 from django.contrib.sites.models import Site
-
 
 def site(request):
     """Return information about current site."""
@@ -15,3 +15,8 @@ def site(request):
     #cache.set('site_name', site_name, 24*3600)
 
     return {"site_name": site_name}
+
+def settings(request):
+    """Return current settings."""
+
+    return {"settings": _settings}

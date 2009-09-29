@@ -85,6 +85,7 @@ INSTALLED_APPS = (
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = TEMPLATE_CONTEXT_PROCESSORS + (
+    'tratten.common.context_processors.settings',
     'tratten.common.context_processors.site',
     'djangoflash.context_processors.flash',
 )

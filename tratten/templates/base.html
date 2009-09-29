@@ -73,10 +73,7 @@
             <div id="footer-menu" class='span-8 last'>
                 <ul>
                     <li style="margin-right: 30px;">
-                        <a href="/about">{% trans "About" %}</a>
-                    </li>
-                    <li style="margin-right: 30px;">
-                        <a href="/feedback">{% trans "Send feedback" %}</a>
+                        <a href="mailto:{{ settings.SEND_FEEDBACK_EMAIL_TO }}">{% trans "Send feedback" %}</a>
                     </li>
                     <li style="margin-right: 30px;">
                         <a href="{% url select-language %}">{% trans "Change language" %}</a>
