@@ -59,14 +59,13 @@ label.label-error { color: #f00; }
 /* Override blueprint css */
 table.ui-datepicker-calendar th { background-color: #fff; }
 
-
 /* Index page clickable boxes */
 .boxed-in {
-    border-color: #78b4f0; background-color: #d2e6fa; color: #0d3e73;
+    border-color: #ffc979; background-color: #ff9900; color: #663d00;
     }
-.boxed-in a { color: #0d3e73 !important; }
+.boxed-in a { color: #663d00 !important; }
 .boxed-in:hover {
-    border-color: #135ba6; background-color: #78b4f0; color: #072240;
+    border-color: #ff9900; background-color: #cc7a00; color: #331f00;
     }
-.issue-box-hover { background-color: #135ba6; }
-.issue-box-hover a { color: #072240 !important; }
+.issue-box-hover { background-color: #cc7a00; }
+.issue-box-hover a { color: #331f00 !important; }
