@@ -1,0 +1,66 @@
+body, html {
+    background-image: url('/media/images/background-fade-green.jpg');
+    background-color: #cfe2af; color: #63871f;
+    }
+
+
+/* Anchors */
+a { color: #fff;}
+a:hover { color: #063811; }
+#main a { color: #63871f; }
+#main a:hover { color: #333; }
+#footer a:link, #footer a:visited { color: #d8e1c7; }
+
+
+/* Divs */
+div#main { background-color: #fff; }
+div#footer {
+    color: #fff; background-color: #63871f; border-bottom-color: #8bbd2b;
+    }
+
+
+/* Headings */
+h2 { color: #63871f; }
+
+
+/* Forms */
+select { border-color: #999; }
+.submit { border-color: #63871f; background-color: #63871f; color: #fff; }
+span.selected-item { color: #999; }
+
+
+/* Spans */
+span.separator { color: #ddd; }
+
+
+/* Lists */
+ul#flash-alerts li {
+    background-color: #dff2bf; color: #4f8a10; border-bottom-color: #4f8a10;
+    }
+ul#flash-alerts li.error {
+    background-color: #ffbaba; color: #d8000c; border-bottom-color: #d8000c;
+    }
+ul#flash-alerts li.confirm {
+    background-color: #ffffba; color: #88880c; border-bottom-color: #88880c;
+    }
+
+
+/* Tables */
+tr.list-even { background-color: #eeeeee !important; }
+td { color: #444; }
+td.summary { color: #666; }
+td.summary span { color:#888; }
+
+
+/* General */
+label.label-error { color: #f00; }
+
+
+/* Override blueprint css */
+table.ui-datepicker-calendar th { background-color: #fff; }
+
+
+/* Index page clickable boxes */
+.boxed-in:hover { border-color: #063811; }
+.issue-box-hover { background-color: #63871f; }
+.issue-box-hover a { color: #063811 !important; }
