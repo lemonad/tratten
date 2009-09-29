@@ -10,7 +10,6 @@ from django.template import RequestContext, loader
 #
 
 
-@login_required
 def select_language(request):
     """Select prefered site language via a form (i18n)."""
 
