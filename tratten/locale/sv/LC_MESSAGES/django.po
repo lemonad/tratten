@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-29 10:09+0200\n"
+"POT-Creation-Date: 2009-09-30 21:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -97,7 +97,7 @@ msgid "Project filter not in list of known categories."
 msgstr "Projektfiltret inte i listan över kända kategorier."
 
 #: categories/admin.py:11 categories/models.py:18 flatcontent/models.py:23
-#: issues/templates/create.html:44
+#: issues/templates/create.html:62
 msgid "Name"
 msgstr "Namn"
 
@@ -226,11 +226,11 @@ msgstr "Rapportera fel"
 msgid "Error reports"
 msgstr "Felrapporter"
 
-#: errorreports/templates/report-error.html:18 issues/templates/list.html:45
+#: errorreports/templates/report-error.html:18 issues/templates/list.html:68
 msgid "Date"
 msgstr "Datum"
 
-#: errorreports/templates/report-error.html:18 issues/templates/list.html:46
+#: errorreports/templates/report-error.html:18 issues/templates/list.html:69
 msgid "Status"
 msgstr "Status"
 
@@ -278,12 +278,12 @@ msgstr "Ärende"
 msgid "Due date (optional)"
 msgstr "Klardatum (valfri)"
 
-#: issues/models.py:34 issues/templates/create.html:101
-#: issues/templates/list.html:48
+#: issues/models.py:34 issues/templates/create.html:119
+#: issues/templates/list.html:71
 msgid "Summary"
 msgstr "Sammanfattning"
 
-#: issues/models.py:37 issues/templates/create.html:111
+#: issues/models.py:37 issues/templates/create.html:129
 msgid "Description"
 msgstr "Beskrivning"
 
@@ -328,48 +328,49 @@ msgstr "Nej"
 msgid "Yes"
 msgstr "Ja"
 
-#: issues/views.py:96
+#: issues/views.py:97
 msgid "One or more fields were not properly filled in."
 msgstr "Ett eller flera fält fylldes inte i korrekt."
 
-#: issues/views.py:119
+#: issues/views.py:120
 msgid "Issue could not be sent via email."
 msgstr "Ärendet kunde inte skickas via epost."
 
-#: issues/views.py:124
+#: issues/views.py:125
 msgid "New issue successfully created."
 msgstr "Nytt ärende skapades."
 
-#: issues/templates/create.html:3 issues/templates/create.html.py:30
-#: issues/templates/create.html:33 issues/templates/done.html:11
-#: issues/templates/index.html:47 issues/templates/list.html:11
+#: issues/templates/create.html:3 issues/templates/create.html.py:46
+#: issues/templates/create.html:49 issues/templates/done.html:11
+#: issues/templates/index.html:47 issues/templates/list.html:32
 msgid "New issue"
 msgstr "Nytt ärende"
 
-#: issues/templates/create.html:35 issues/templates/done.html:13
+#: issues/templates/create.html:51 issues/templates/done.html:13
 #: issues/templates/index.html:53 issues/templates/list.html:3
-#: issues/templates/list.html.py:13
+#: issues/templates/list.html.py:34
 msgid "Issue status"
 msgstr "Ärendestatus"
 
-#: issues/templates/create.html:37 issues/templates/done.html:15
-#: issues/templates/list.html:15
+#: issues/templates/create.html:54 issues/templates/create.html.py:154
+#: issues/templates/create.html:155 issues/templates/list.html:37
+#: issues/templates/list.html.py:90 issues/templates/list.html:91
 msgid "Help"
 msgstr "Hjälp"
 
-#: issues/templates/create.html:53
+#: issues/templates/create.html:71
 msgid "Email"
 msgstr "Epost"
 
-#: issues/templates/create.html:62
+#: issues/templates/create.html:80
 msgid "Phone"
 msgstr "Telefon"
 
-#: issues/templates/create.html:82
+#: issues/templates/create.html:100
 msgid "Is this an emergency?"
 msgstr "Är det här akut?"
 
-#: issues/templates/create.html:94
+#: issues/templates/create.html:112
 msgid ""
 "You've marked this issue as an emergency. Are you certain that it can not "
 "wait?"
@@ -377,11 +378,11 @@ msgstr ""
 "Du har angivit att situationen är akut &mdash; är du helt säker på att det "
 "inte kan vänta?"
 
-#: issues/templates/create.html:121
+#: issues/templates/create.html:139
 msgid "Date you would want this completed? (yyyy-mm-dd)"
 msgstr "Önskad klartidpunkt (yyyy-mm-dd)"
 
-#: issues/templates/create.html:129
+#: issues/templates/create.html:147
 msgid "Send"
 msgstr "Skicka"
 
@@ -397,23 +398,23 @@ msgstr "Kontrollera gärna om det fel du råkat ut för redan är inrapporterat.
 msgid "See current status of reported issues."
 msgstr "Se aktuell status på de ärenden som inrapporterats."
 
-#: issues/templates/list.html:22
+#: issues/templates/list.html:45
 msgid "Filter on"
 msgstr "Filtrera på"
 
-#: issues/templates/list.html:34
+#: issues/templates/list.html:57
 msgid "OK"
 msgstr "OK"
 
-#: issues/templates/list.html:44
+#: issues/templates/list.html:67
 msgid "Project"
 msgstr "Projekt"
 
-#: issues/templates/list.html:47
+#: issues/templates/list.html:70
 msgid "Assigned to"
 msgstr "Tilldelad till"
 
-#: issues/templates/list.html:57
+#: issues/templates/list.html:80
 msgid "issue #"
 msgstr "ärende #"
 
@@ -619,21 +620,14 @@ msgstr ""
 msgid "Thank you for your patience!"
 msgstr "Tack för ditt tålamod!"
 
-#: templates/base.html:75
-msgid "About"
-msgstr "Om"
-
-#: templates/base.html:78
+#: templates/base.html:76
 msgid "Send feedback"
 msgstr "Skicka feedback"
 
-#: templates/base.html:81
+#: templates/base.html:79
 msgid "Change language"
 msgstr "Välj språk"
 
-#: templates/base.html:84
+#: templates/base.html:82
 msgid "Administration"
 msgstr "Administration"
-
-#~ msgid "Filter"
-#~ msgstr "Filtrera"
