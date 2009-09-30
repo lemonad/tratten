@@ -142,7 +142,7 @@ table.ui-datepicker-calendar th { }
 
 
 /* Help dialog (and related) */
-#helptext { font-size: 13px; }
+#helptext { font-size: 13px; text-align: left; }
 #helptext p { margin-bottom: 0.5em; }
 #helptext ul {
     list-style-image: none; list-style-position: outside;
