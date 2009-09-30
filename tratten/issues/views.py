@@ -168,14 +168,17 @@ def list(request):
 
     # Send issue via email?
     if settings.MANTIS_ISSUE_LIST_BACKEND_ENABLED and \
-                settings.MANTIS_ISSUE_LIST_BACKEND_REPORT_PERMALINK_URL:
+                settings.MANTIS_ISSUE_LIST_BACKEND_REPORT_URL:
         from tratten.backends.mantis.mantis import fetch_issues
         issue_list = fetch_issues(project_filter)
+    else:
+        issue_list = None
 
     t = loader.get_template('list.html')
     c = RequestContext(request,
                        {'categories': categories,
                         'category_name': category_name,
                         'helptext': helptext,
-                        'issue_list': issue_list})
+                        'issue_list': issue_list,
+                        'filter': project_filter})
     return HttpResponse(t.render(c))

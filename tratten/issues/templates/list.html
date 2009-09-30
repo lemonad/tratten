@@ -51,7 +51,7 @@
             <select class="width-80" name="filter">
                 <option value=""></option>
                 {% for category in categories %}
-                <option value="{{ category.name }}">{{ category.name }}</option>
+                <option value="{{ category.name }}"{% ifequal filter category.name %} selected="selected"{% endifequal%}>{{ category.name }}</option>
                 {% endfor %}
             </select>
             <input class="submit" type="submit" value="{% trans "OK" %}" />
@@ -77,7 +77,10 @@
             <td>{{ issue_status|capfirst }}</td>
             <td>{{ assigned_to }}</td>
             <td class="summary">
-                {{ issue_summary }} <span>(<a href="#">{% trans "issue #" %}{{ issue_id }}</a>)</span>
+                {{ issue_summary }}
+                {% if settings.MANTIS_ISSUE_LIST_BACKEND_ENABLED %}
+                <span>(<a href="{{ settings.MANTIS_ISSUE_LIST_BACKEND_ISSUE_URL }}{{ issue_id }}">{% trans "issue #" %}{{ issue_id }}</a>)</span>
+                {% endif %}
             </td>
         </tr>
         {% endfor %}

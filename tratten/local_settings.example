@@ -46,4 +46,10 @@ EMAIL_BACKEND_SEND_NEW_ISSUES_TO = "tratten@example.com"
 #
 # Settings for Mantis issue list backend
 #
-MANTIS_ISSUE_LIST_BACKEND_REPORT_PERMALINK_URL = "/tratten/backends/mantis/example/example-report.csv"
+MANTIS_USERNAME = "example" # optional
+MANTIS_PASSWORD = "password" # optional
+MANTIS_ISSUE_LIST_BACKEND_LOGIN_URL = "http://mantis/login.php"
+MANTIS_ISSUE_LIST_BACKEND_ISSUE_URL = "http://mantis/view.php?id="
+MANTIS_ISSUE_LIST_BACKEND_REPORT_URL = "http://mantis/csv_export.php"
+# Or, optionally, use a local csv file
+# MANTIS_ISSUE_LIST_BACKEND_REPORT_URL = "tratten/backends/mantis/example/example-report.csv"

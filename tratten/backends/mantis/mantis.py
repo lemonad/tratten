@@ -20,6 +20,7 @@ import re
 import simplejson
 import sys
 import time
+from urllib import urlencode
 import urllib2
 
 from django.conf import settings
@@ -36,22 +37,38 @@ def fetch_issues(project_filter=None):
     freebusy = {}
 
     now = time.strftime("%Y-%m-%dT%H:%M:%S", time.localtime())
-    url = settings.MANTIS_ISSUE_LIST_BACKEND_REPORT_PERMALINK_URL
+    url = settings.MANTIS_ISSUE_LIST_BACKEND_REPORT_URL
 
     # Expect local example file path if not an HTTP-based URL
     if re.match('^http', url):
         try:
             auth_handler = urllib2.HTTPBasicAuthHandler()
+            cookie_handler = urllib2.HTTPCookieProcessor()
+            redirection_handler = urllib2.HTTPRedirectHandler()
 
-            opener = urllib2.build_opener(auth_handler)
+            opener = urllib2.build_opener(auth_handler,
+                                          cookie_handler,
+                                          redirection_handler)
+
             urllib2.install_opener(opener)
-            req = urllib2.Request(url)
+            if settings.MANTIS_USERNAME and settings.MANTIS_PASSWORD:
+                login_parameters = {'username': settings.MANTIS_USERNAME,
+                                    'password': settings.MANTIS_PASSWORD}
+                data = urlencode(login_parameters)
+                report_url_data = urlencode({'return': settings.MANTIS_ISSUE_LIST_BACKEND_REPORT_URL})
+                login_url = settings.MANTIS_ISSUE_LIST_BACKEND_LOGIN_URL + \
+                                "?" + report_url_data
+                req = urllib2.Request(login_url, data)
+            else:
+                login_url = settings.MANTIS_ISSUE_LIST_BACKEND_LOGIN_URL
+                req = urllib2.Request(login_url)
+
             r = urllib2.urlopen(req)
         except urllib2.HTTPError:
             raise Http404(ugettext("Could not fetch issue list from Mantis."))
     else:
         # File-based for testing
-        r = open(settings.MANTIS_ISSUE_LIST_BACKEND_REPORT_PERMALINK_URL)
+        r = open(settings.MANTIS_ISSUE_LIST_BACKEND_REPORT_URL)
 
     csvreader = csv.reader(r, delimiter=',', quotechar='"')
 
