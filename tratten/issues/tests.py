@@ -15,7 +15,7 @@ from models import Issue
 
 
 class IssueModelTests(TestCase):
-    fixtures = ['categories.json', 'issues.json']
+    fixtures = ['categories.json', 'flatcontent.json', 'issues.json']
 
     def setUp(self):
         pass
@@ -41,7 +41,7 @@ class IssueModelTests(TestCase):
         self.assertRaises(ObjectDoesNotExist, Issue.objects.get, id=iid)
 
 class IssueUnauthorizedTests(TestCase):
-    fixtures = ['categories.json', 'issues.json']
+    fixtures = ['categories.json', 'flatcontent.json', 'issues.json']
 
     def setUp(self):
         pass
@@ -149,3 +149,29 @@ class IssueUnauthorizedTests(TestCase):
                                      'reporter_email': 'test@example.com',})
         self.assertRedirects(response, reverse('issue-creation-done'),
                              status_code=302, target_status_code=200)
+
+class IssueUnauthorizedTestsNoFlatContent(TestCase):
+    fixtures = ['categories.json', 'issues.json']
+
+    def setUp(self):
+        pass
+
+    def test_index_view_unauth(self):
+        """Make sure view loads properly."""
+        response = self.client.get(reverse('index'))
+        self.failUnlessEqual(response.status_code, 200)
+
+    def test_create_issue_view_unauth(self):
+        """Make sure view loads properly."""
+        response = self.client.get(reverse('create-issue'))
+        self.failUnlessEqual(response.status_code, 200)
+
+    def test_list_issues_view_unauth(self):
+        """Make sure view loads properly."""
+        response = self.client.get(reverse('list-issues'))
+        self.failUnlessEqual(response.status_code, 200)
+
+    def test_issue_creation_done_view_unauth(self):
+        """Make sure view loads properly."""
+        response = self.client.get(reverse('issue-creation-done'))
+        self.failUnlessEqual(response.status_code, 200)

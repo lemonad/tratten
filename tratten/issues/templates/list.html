@@ -2,17 +2,40 @@
 {% load i18n %}
 {% block metatitle %}{% trans "Issue status" %}{% endblock %}
 {% block reporterrorlink %}{% url errorreport %}?url={% url startpage %}{% endblock %}
+{% block javascript %}
+  <script type='text/javascript'>
+    $(document).ready(function() {
+        {% include "base-document-ready.js" %}
+
+        /* Help handling */
+        {% if helptext %}
+        $("#help-container").hide()
+        $("#openhelp-separator").show()
+        $("#openhelp").show()
+        $("#helptext").dialog({ width: 450,
+                                position: ['right','top'],
+                                autoOpen: false });
+        $("#openhelp").click(function() {
+            $('#helptext').dialog('open');
+            return false;
+        });
+        {% endif %}
+    });
+  </script>
+{% endblock %}
 {% block container %}
 <div class='span-10 last'>
-<div class="span-6">
-    <h2>Ärendestatus</h2>
-</div>
-<div id="menubar" class='span-4 last right'>
-    <a href="{% url create-issue %}">{% trans "New issue" %}</a>
-    <span class="separator">|</span>
-    <span class="selected-item">{% trans "Issue status" %}</span>
-    <span class="separator">|</span>
-    <a href="help.html">{% trans "Help" %}</a>
+    <div class="span-6">
+        <h2>Ärendestatus</h2>
+    </div>
+    <div id="menubar" class='span-4 last right'>
+        <a href="{% url create-issue %}">{% trans "New issue" %}</a>
+        <span class="separator">|</span>
+        <span class="selected-item">{% trans "Issue status" %}</span>
+        {% if helptext %}
+        <span id="openhelp-separator" class="separator">|</span>
+        <a id="openhelp" href="help.html">{% trans "Help" %}</a>
+        {% endif %}
     </div>
 </div>
 
@@ -60,4 +83,12 @@
         {% endfor %}
     </table>
 </div>
+
+
+{% if helptext %}
+<div id="help-container" class='span-10 last'>
+    <h3>{% trans "Help" %}</h3>
+    <div id="helptext" title="{% trans "Help" %}">{{ helptext|safe }}</div>
+</div>
+{% endif %}
 {% endblock %}

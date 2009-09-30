@@ -1,5 +1,4 @@
 body, html {
-    background-image: url('/media/images/background-fade.jpg');
     background-repeat: repeat-x; background-attachment: fixed;
     background-position: top;
     font-family: Arial, Helvetica, sans-serif;
@@ -47,6 +46,10 @@ h1 { margin: 0; padding: 0; }
 h2 {
     padding-bottom: 0.25em; margin-bottom: 0;
     font-size: 36px; letter-spacing: -0.03em;
+    }
+h3 {
+    padding-bottom: 0.25em; margin-bottom: 0;
+    font-size: 20px; letter-spacing: -0.03em;
     }
 
 
@@ -136,3 +139,16 @@ table.ui-datepicker-calendar th { }
 .boxed-in:hover { }
 .issue-box-hover { cursor: pointer; }
 .issue-box-hover a { }
+
+
+/* Help dialog (and related) */
+#helptext { font-size: 13px; }
+#helptext p { margin-bottom: 0.5em; }
+#helptext ul {
+    list-style-image: none; list-style-position: outside;
+    list-style-type: disc;
+    margin-bottom: 0.5em;
+    }
+#helptext li { font-size: 14px; }
+#help-container { }
+#openhelp, #openhelp-separator { display: none; }

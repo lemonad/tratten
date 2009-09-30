@@ -88,6 +88,7 @@ def create(request):
 
     category_name = get_flatcontent('category-name')
     issue_template = get_flatcontent('issue-template')
+    helptext = get_flatcontent('help-create-issue')
     categories = Category.objects.all()
 
     if request.method == 'POST':
@@ -139,7 +140,8 @@ def create(request):
     c = RequestContext(request,
                        {'categories': categories,
                         'category_name': category_name,
-                        'form': issue_form})
+                        'form': issue_form,
+                        'helptext': helptext})
     return HttpResponse(t.render(c))
 
 def done(request):
@@ -156,6 +158,7 @@ def list(request):
     """List issues."""
 
     category_name = get_flatcontent('category-name')
+    helptext = get_flatcontent('help-list-issues')
     categories = Category.objects.all()
 
     if request.method == 'GET' and 'filter' in request.GET:
@@ -173,5 +176,6 @@ def list(request):
     c = RequestContext(request,
                        {'categories': categories,
                         'category_name': category_name,
+                        'helptext': helptext,
                         'issue_list': issue_list})
     return HttpResponse(t.render(c))

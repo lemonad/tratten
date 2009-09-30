@@ -43,5 +43,23 @@
             "language_code": "en",
             "content": "When did you notice the problem?\n\nWhat can you do to reproduce it?\n1. \n2. \n3. \n\nWhat is the expected output? What do you see instead?\n\nWhen can we contact you if we need further information? When is it convenient to try to fix the problem?"
         }
+    },
+    {
+        "pk": 6,
+        "model": "flatcontent.flatcontent",
+        "fields": {
+            "name": "help-create-issue",
+            "language_code": "en",
+            "content": "<p>Registering an issue</p><ul><li>Enter your <strong>name</strong> and <strong>email address</strong>. Also write your <strong>phone number</strong> that we can reach you through if we would need additional information.</li><li>Select the <strong>project</strong> that this issue concerns.</li><li>Decide whether the issue is <strong>urgent</strong> or not. Avoid marking issues as urgent if they do not need absolutely immediate attention. Over-use can make it more difficult for us to provide good service. Thanks for your cooperation!</li><li>Enter a short and succinct issue <strong>summary</strong>.</li><li>Try to write an as detailed as possible <strong>description</strong>. It can seem unnecessary but it will help us to learn about your project and give better service in the long run. Use the guidelines that the field is pre-filled in with.</li><li>Double check that you've entered enough relevant information for us to be able to solve your issue and then click <strong>send</strong>.</li></ul>"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "flatcontent.flatcontent",
+        "fields": {
+            "name": "help-list-issues",
+            "language_code": "en",
+            "content": "<p>Select the project you would like information on and click <strong>OK</strong>. A summary of the open issues are now shown. If you would want more information on a given issue, there's a direct link to the Mantis issue for your convenience.</p><p>Observe that issues moved out from service desk to regular operations or projects are not shown in the list.</p>"
+        }
     }
 ]

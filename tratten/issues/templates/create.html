@@ -7,6 +7,7 @@
     $(document).ready(function() {
       {% include "base-document-ready.js" %}
 
+      /* Urgency */
       $("input[name='urgent']").click(function () {
         if($("input[name='urgent']:checked").val() == "1" ) {
           $("#urgency-notice").show();
@@ -15,6 +16,21 @@
         }
       });
 
+      /* Help handling */
+      {% if helptext %}
+      $("#help-container").hide()
+      $("#openhelp-separator").show()
+      $("#openhelp").show()
+      $("#helptext").dialog({ width: 450,
+                              position: ['right','top'],
+                              autoOpen: false });
+      $("#openhelp").click(function() {
+          $('#helptext').dialog('open');
+          return false;
+      });
+      {% endif %}
+
+      /* Due date */
       $("#due-date").datepicker({
         dateFormat: 'yy-mm-dd',
         duration: 0,
@@ -33,8 +49,10 @@
             <span class="selected-item">{% trans "New issue" %}</span>
             <span class="separator">|</span>
             <a href="{% url list-issues %}">{% trans "Issue status" %}</a>
-            <span class="separator">|</span>
-            <a href="help.html">{% trans "Help" %}</a>
+            {% if helptext %}
+            <span id="openhelp-separator" class="separator">|</span>
+            <a id="openhelp" href="help.html">{% trans "Help" %}</a>
+            {% endif %}
         </div>
     </div>
 
@@ -129,5 +147,13 @@
             <input class="submit" type="submit" value="{% trans "Send" %}" />
         </div>
     </div>
+
+
+    {% if helptext %}
+    <div id="help-container" class='span-10 last'>
+        <h3>{% trans "Help" %}</h3>
+        <div id="helptext" title="{% trans "Help" %}">{{ helptext|safe }}</div>
+    </div>
+    {% endif %}
 </form>
 {% endblock %}
