@@ -51,7 +51,7 @@
             <select class="width-80" name="filter">
                 <option value=""></option>
                 {% for category in categories %}
-                <option value="{{ category.name }}"{% ifequal filter category.name %} selected="selected"{% endifequal%}>{{ category.name }}</option>
+                <option value="{{ category.name }}"{% ifequal filter category.name %} selected="selected"{% endifequal %}>{{ category.name }}</option>
                 {% endfor %}
             </select>
             <input class="submit" type="submit" value="{% trans "OK" %}" />
