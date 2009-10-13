@@ -59,7 +59,7 @@
 
     <div class='span-3'>
         <div class='span-3 label last'>
-            <label {% if form.reporter_name.errors %}class="label-error"{% endif %} for="id_reporter_name">{% trans "Name" %} *</label>
+            <label {% if form.reporter_name.errors %}class="label-error" {% endif %}for="id_reporter_name">{% trans "Name" %} *</label>
         </div>
 
         <div class='span-3 last'>
@@ -68,7 +68,7 @@
     </div>
     <div class='span-4'>
         <div class='span-4 label last'>
-            <label {% if form.reporter_email.errors %}class="label-error"{% endif %} for="id_reporter_email">{% trans "Email" %} *</label>
+            <label {% if form.reporter_email.errors %}class="label-error" {% endif %}for="id_reporter_email">{% trans "Email" %} *</label>
         </div>
 
         <div class='span-4 last'>
@@ -77,7 +77,7 @@
     </div>
     <div class='span-3 last'>
         <div class='span-3 label last'>
-            <label {% if form.reporter_phone.errors %}class="label-error"{% endif %} for="id_reporter_phone">{% trans "Phone" %}</label>
+            <label {% if form.reporter_phone.errors %}class="label-error" {% endif %}for="id_reporter_phone">{% trans "Phone" %}</label>
         </div>
 
         <div class='span-3 last'>
@@ -88,7 +88,7 @@
 
     <div class='span-4'>
         <div class='span-4 label last'>
-            <label {% if form.category.errors %}class="label-error"{% endif %} for="id_category">{{ category_name }} *</label>
+            <label {% if form.category.errors %}class="label-error" {% endif %}for="id_category">{{ category_name }} *</label>
         </div>
 
         <div class='span-4 last'>
@@ -97,7 +97,7 @@
     </div>
     <div class='span-4'>
         <div class='span-4 label last'>
-            <label {% if form.urgent.errors %}class="label-error"{% endif %} for="id_urgent">{% trans "Is this an emergency?" %}</label>
+            <label {% if form.urgent.errors %}class="label-error" {% endif %}for="id_urgent">{% trans "Is this an emergency?" %}</label>
         </div>
 
         <div id="urgent-radio" class="span-4 last">
@@ -116,7 +116,7 @@
 
     <div class='span-10 last'>
         <div class='span-10 label last'>
-            <label {% if form.summary.errors %}class="label-error"{% endif %} for="id_summary">{% trans "Summary" %} *</label>
+            <label {% if form.summary.errors %}class="label-error" {% endif %}for="id_summary">{% trans "Summary" %} *</label>
         </div>
         <div class='span-10 last'>
             {{ form.summary }}
@@ -126,7 +126,7 @@
 
     <div class='span-10 last'>
         <div class='span-10 label last'>
-            <label {% if form.description.errors %}class="label-error"{% endif %} for="id_description">{% trans "Description" %} *</label>
+            <label {% if form.description.errors %}class="label-error" {% endif %}for="id_description">{% trans "Description" %} *</label>
         </div>
         <div class='span-10 last'>
             {{ form.description }}
@@ -136,7 +136,7 @@
     <div class='span-10 last'>
         {% comment %}
         <div class='span-10 label last'>
-            <label {% if form.due_date.errors %}class="label-error"{% endif %} for="id_due_date">{% trans "Date you would want this completed? (yyyy-mm-dd)" %}</label>
+            <label {% if form.due_date.errors %}class="label-error" {% endif %}for="id_due_date">{% trans "Date you would want this completed? (yyyy-mm-dd)" %}</label>
         </div>
         <div class='span-2'>
             {{ form.due_date }}
