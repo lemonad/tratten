@@ -34,8 +34,7 @@ class Issue(Model):
     summary = CharField(_("Summary"),
                         db_index=True,
                         max_length=128)
-    description = TextField(_("Description"),
-                            blank=True)
+    description = TextField(_("Description"))
     urgent = BooleanField(_("Urgent?"),
                           db_index=True,
                           default=False)
@@ -51,6 +50,7 @@ class Issue(Model):
                                 max_length=64)
     reporter_phone = CharField(_("Reporter phone number"),
                                null=True,
+                               blank=True,
                                max_length=32)
     created_at = DateTimeField(_("Created"),
                                db_index=True,

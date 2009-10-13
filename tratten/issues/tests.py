@@ -131,7 +131,7 @@ class IssueUnauthorizedTests(TestCase):
         self.assertFormError(response, 'form', 'reporter_email',
                              ugettext("This field is required."))
 
-    def test_create_issue_via_incomplete_form(self):
+    def test_create_issue_via_complete_form(self):
         """
         Make sure create issue view accept complete forms.
         

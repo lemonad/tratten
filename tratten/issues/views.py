@@ -26,34 +26,21 @@ class IssueForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(IssueForm, self).__init__(*args, **kwargs)
-        self.fields['reporter_name'] = forms.CharField(
-                required=True,
-                widget=forms.TextInput(attrs={'class': 'span-3'}))
-        self.fields['reporter_email'] = forms.CharField(
-                required=True,
-                widget=forms.TextInput(attrs={'class': 'span-4'}))
-        self.fields['reporter_phone'] = forms.CharField(
-                required=False,
-                widget=forms.TextInput(attrs={'class': 'span-3'}))
+        self.fields['reporter_name'].widget.attrs['class'] = "span-3 last"
+        self.fields['reporter_email'].widget.attrs['class'] = "span-4 last"
+        self.fields['reporter_phone'].widget.attrs['class'] = "span-3 last"
         self.fields['category'] = forms.ModelChoiceField(
-                required=True,
-                queryset=Category.objects.all(),
-                empty_label="")
+                                            required=True,
+                                            queryset=Category.objects.all(),
+                                            empty_label="")
         self.fields['urgent'] = forms.TypedChoiceField(
                 coerce=lambda x: bool(int(x)),
                 choices=((0, _('No')), (1, _('Yes'))),
                 widget=forms.RadioSelect)
-        self.fields['summary'] = forms.CharField(
-                required=True,
-                widget=forms.TextInput(attrs={'class': 'span-10'}))
-        self.fields['description'] = forms.CharField(
-                required=True,
-                widget=forms.Textarea(attrs={'class': 'span-10'}))
-        self.fields['due_date'] = forms.DateField(
-                required=False,
-                widget=forms.DateInput(attrs={'class': 'span-2',
-                                              'id': 'due-date'}))
-
+        self.fields['summary'].widget.attrs['class'] = "span-10 last"
+        self.fields['description'].widget.attrs['class'] = "span-10 last"
+        self.fields['due_date'].widget.attrs['class'] = "span-2 last"
+        self.fields['due_date'].widget.attrs['id'] = "due-date"
     class Meta:
       model = Issue
       fields = ('category',
