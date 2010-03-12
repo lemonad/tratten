@@ -15,8 +15,12 @@ logging.basicConfig(
 #
 # Database
 #
+DATABASE_ENGINE = 'sqlite3'
+DATABASE_NAME = 'tratten'
+DATABASE_USER = 'tratten'
 DATABASE_PASSWORD = ''    # Not used with sqlite3.
-
+DATABASE_HOST = ''        # Set to empty string for localhost.
+DATABASE_PORT = ''        # Set to empty string for default.
 
 #
 # Miscellaneous
