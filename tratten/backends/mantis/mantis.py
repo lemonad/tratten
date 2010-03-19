@@ -110,7 +110,7 @@ def fetch_issues(project_filter=None):
 
     issue_list = []
     for row in csvreader:
-        if row[project_col] in categories:
+        if not project_filter or row[project_col] in categories:
             # Replace hyphens with is non breaking spaces
             project_value = re.sub('-', '&#8209;', row[project_col])
             date_submitted_value = re.sub('-', '&#8209;', row[date_submitted_col])
